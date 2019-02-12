@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+    
+    <h1>check http Server</h1>
+        <hr>
+        <p id='messageHTTPD'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button"　id='addBtn0' onclick="httpdCtl('start')">Start</button>
+<button type="button"　id='setBtn0' onclick="httpdCtl('stop')">Stop</button>
+<button type="button"　id='setBtn0' onclick="httpdCtl('restart')">Restart</button>
+httpdが起動していなかったらStartボタンで起動してください。
+<hr>
+        
+<h1>check tempController</h1>
+        <hr>
+        <p id='messageTempController'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button" id='addBtn1' onclick="tempControllerCtl('start')">Start</button>
+<button type="button" id='setBtn1' onclick="tempControllerCtl('stop')">Stop</button>
+<button type="button" id='setBtn1' onclick="tempControllerCtl('restart')">Restart</button>
+tempControllerが起動していなかったらStartボタンで起動してください。
+<hr>
+
+<h1>check dataCapture Server</h1>
+        <hr>
+        <p id='message'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button" id='addBtn2' onclick="dataCaptureCtl('start')">Start</button>
+<button type="button" id='setBtn2' onclick="dataCaptureCtl('stop')">Stop</button>
+<button type="button" id='setBtn2' onclick="dataCaptureCtl('restart')">Restart</button>
+dataCaptureが起動していなかったらStartボタンで起動してください。
+<hr>
+
+<h1>check shortPeriodControl Server</h1>
+        <hr>
+        <p id='messageShortPeriodControl'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button" id='addBtn3' onclick="ShortPeriodControlCtl('start')">Start</button>
+<button type="button" id='setBtn3' onclick="ShortPeriodControlCtl('stop')">Stop</button>
+<button type="button" id='setBtn3' onclick="ShortPeriodControlCtl('restart')">Restart</button>
+ShortPeriodScheduleが起動していなかったらStartボタンで起動してください。
+<hr>
+
+<h1>check LongPeriodSchedule Server</h1>
+        <hr>
+        <p id='messageLongPeriodSchedule'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button" id='addBtn4' onclick="LongPeriodScheduleCtl('start')">Start</button>
+<button type="button" id='setBtn4' onclick="LongPeriodScheduleCtl('stop')">Stop</button>
+<button type="button" id='setBtn4' onclick="LongPeriodScheduleCtl('restart')">Restart</button>
+LongPeriodScheduleが起動していなかったらStartボタンで起動してください。
+<hr>
+
+<h1>check LongPeriodControl Server</h1>
+        <hr>
+        <p id='messageLongPeriodControl'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button" id='addBtn5' onclick="LongPeriodControlCtl('start')">Start</button>
+<button type="button" id='setBtn5' onclick="LongPeriodControlCtl('stop')">Stop</button>
+<button type="button" id='setBtn5' onclick="LongPeriodControlCtl('restart')">Restart</button>
+LongPeriodControlが起動していなかったらStartボタンで起動してください。
+<hr>
+
+
+<h1>check mjpg-Streamer Server</h1>
+        <hr>
+        <p id='messageMJPG'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button" id='addBtn6' onclick="mjpgStreamerCtl('start')">Start</button>
+<button type="button" id='setBtn6' onclick="mjpgStreamerCtl('stop')">Stop</button>
+<button type="button" id='setBtn6' onclick="mjpgStreamerCtl('restart')">Restart</button>
+mjpg-Streamerが起動していなかったらStartボタンで起動してください。
+USBカメラを付けた時や取り替えた時にもRestartが必要です。
+<hr>
+
+<h1>check tty.js Server</h1>
+        <hr>
+        <p id='messageTTYJS'></p>
+        <hr>
+        <table>
+        <tr>
+<button type="button" id='addBtn7' onclick="ttyjsCtl('start')">Start</button>
+<button type="button" id='setBtn7' onclick="ttyjsCtl('stop')">Stop</button>
+<button type="button" id='setBtn7' onclick="ttyjsCtl('restart')">Restart</button>
+tty.jsが起動していなかったらStartボタンで起動してください。
+Shellが応答しない場合には、起動しなおしてください。
+<hr>
+        <h1>check USB devices</h1>
+        <hr>
+        <p id='USBlist'></p>
+<hr>
+<button type="button" id='setBtn8' onclick="reboot()">Reboot</button>
+<button type="button" id='scanBtn8' onclick="lsusb('')">ReScan</button>
+<script type="text/javascript" language="javascript">
+//document.open();
+        doc = 'USBデバイスが表示されていなければ、USBコネクタを挿しなおしてみてください。それでもダメならば'+window.location.hostname+'を再起動してください。<hr>';
+        doc +='<td>測定データ</td><td><a href="http://'+window.location.hostname+'/data/itplanterCapturedData.csv">/home/coder/coder-dist/coder-base/data/itplanterCapturedData.csv</a></td></tr><tr>';
+        doc += '<td>設定ファイル</td><td><a href="http://'+window.location.hostname+'/config/saveCamSchedule.txt">/home/coder/coder-dist/coder-base/config/saveCamSchedule.txt</a></td></tr><tr>';
+        doc += '<td>撮影画像</td><td><a href="http://'+window.location.hostname+'/photo">/home/coder/coder-dist/coder-base/photo/</a></td></tr></table><hr>';
+        doc += '<p><a href="https://'+window.location.hostname+':8091/app/cameraschedule">カメラ撮影計画の変更</a></p>';
+        doc += '<p><a href="https://'+window.location.hostname+':8091/app/streamcamera">カメラ撮影</a></p>';
+        doc += '<p><a href="https://'+window.location.hostname+':8091/app/galleryview">撮影画像のアルバム表示</a></p><hr><div>';
+document.write(doc);
+//document.close();
+</script>
+        
+        dataCaptureは、定期的にiTelepass03.localのセンサー情報を収集したり、指定日時にカメラの撮影を行うデーモンプロセスです。
+        設定ファイルが変更されると、自動的に変更を反映します。
+        </div>
+</div>
+</body>
+</html>

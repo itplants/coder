@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>    
+    <script src="/static/common/js/jQueryRotate.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+    <!--- CSS はここにかく -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/static/datetimepicker/jquery.datetimepicker.css"/>
+        <style type="text/css">
+        .custom-date-style {
+            background-color: red !important;
+        }
+        </style>
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+   <script src="/static/datetimepicker/jquery.datetimepicker.js"></script>   
+   <script src="/static/DataTables/media/js/jquery.dataTables.js"></script>
+
+</head>
+<body class="">
+<h1>Clock</h1>
+<div class="pagecontent">
+
+
+<div class="clock_face">
+<div class="clock_hours2"   ><img src="/static/common/media/images/clock_hours_hand.png"   id="clock_hours_hand2" /></div>
+<div class="clock_minutes2" ><img src="/static/common/media/images/clock_minutes_hand.png" id="clock_minutes_hand2" /></div>
+<div class="clock_seconds2" ><img src="/static/common/media/images/clock_seconds_hand.png" id="clock_seconds_hand2" /></div>
+</div>
+<div>RealTimeClock Time: itplanter-02</div>
+<hr>
+<div class="clock_face">
+<div class="clock_hours"><img src="/static/common/media/images/clock_hours_hand.png"     id="clock_hours_hand" /></div>
+<div class="clock_minutes"><img src="/static/common/media/images/clock_minutes_hand.png" id="clock_minutes_hand" /></div>
+<div class="clock_seconds"><img src="/static/common/media/images/clock_seconds_hand.png" id="clock_seconds_hand" /></div>
+</div>
+<div>Network Time: iTelepass2</div>
+<hr>
+    時間を入力<input type='text' id='clockinput'　onKeyPress='key_press()'><button id='adjustclock' onclick="adjustClock()">時間を合わせる</button>
+    <button id='timediff' onclick="diffReport()">時差を調べる</button>
+    <p id='message'></p>
+<hr>
+<div>
+アイティプランター内臓の時刻を表示します。時計合せボタンをクリックすると、ネットワーク時間に合わせます。時間を合わせて時差を調べると、１秒以内になります。
+時間を入力して、時計合わせボタンをクリックすると、その時間になります。</dvi>
+<div>
+設定例）1時２分10秒に設定する場合、010210と入力します。必ず６個の数字で入力してください。
+</div>
+<hr>
+       
+       <p id='resultmessage'></p>
+    </div>
+</body>
+</html>

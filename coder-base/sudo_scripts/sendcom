@@ -1,0 +1,6 @@
+#!/bin/sh
+#res=`/bin/date; /usr/bin/sudo /usr/local/bin/sendcom "$1" $2 $3 $4`
+# flock version
+res=`/bin/date; /usr/bin/sudo /usr/bin/flock /tmp/lock /usr/local/bin/sendcom "$1" $2 $3 $4`
+#echo $res >> /home/pi/sendcom.log
+echo $res

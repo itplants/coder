@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+    
+    <script src="/static/highcharts/highcharts.js"></script>
+    <script src="/static/highcharts/modules/exporting.js"></script>
+    <script src="/static/pot.min.js"></script>
+    
+    <!-- script src="{{&static_url}}/HighChartGraph/webroot/js/highcharts.js"></script>
+    <!--script src="{{&static_url}}/HighChartGraph/webroot/js/exporting.js"></script -->
+    <!--script src="{{&static_url}}/potlite.min.js"></script-->
+
+</head>
+<body class="" id='body'>
+    <div class="pagecontent">
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<hr>
+<input id="radioTemp" type="radio" name="radiosw"  value="temp"  onclick="saveResource('temp')" checked>温度
+<input id="radioWater" type="radio" name="radiosw" value="water" onclick="saveResource('water')">水位
+<input id="radioIllum" type="radio" name="radiosw" value="illum" onclick="saveResource('illum')">照度
+<hr>
+<p id='list'></p>
+<hr>
+<!-- p
+onmouseover='style.backgroundColor = "#22ff22"' onmouseout='style.backgroundColor = "white"'
+>
+test
+</p -->
+
+    <!--button id='update'  onclick="update()">更新</button -->
+    <button id='readfile' onclick="readDataFile()">読込</button>
+    <button id='newfile' onclick="newfile()">新規</button>
+    <button id='newfile' onclick="fileRemove()">削除</button>
+    <button id='newfile' onclick="lsDataFile()">検索</button>
+
+    <p id='prgBar' style="display:inline"><progress id='progress' value="0" max="100"  ><span>0</span>%</progress> (<span id='prgVal'>0</span>%)</p>
+<p><a href="javascript:history.back();">戻る</a></p>
+</div>
+<p id='message'></p>
+<p id='messageConsole'></p>
+<p id='result'></p>
+<p id='hide' disabled></p>
+<hr>
+INPUT    :<label id='input'></label><br>
+RENAME TO:<label id='output'></label>
+<hr>
+<div>
+<script type="text/javascript" language="javascript">
+doc  = '測定データは、<a href="http://'+window.location.hostname+'/data/">/mnt/data</a>の中にあります。dataCaptureデーモンにより<a href="http://'+location.hostname+'/data/itplanterCapturedData.csv">itplanterCapturedData.csv</a> に追記記録されます。新規ボタンを押すと、新しく記録を始めます。古いファイルは、その日のタイムスタンプ付きのファイル名になります。X軸の目盛を均等間隔で見るには、<a href="https://'+location.hostname+':8091/app/highchartgraph">highchartgraph</a>を使ってください。';
+document.write(doc);
+</script>
+</div>
+</body>
+</html>

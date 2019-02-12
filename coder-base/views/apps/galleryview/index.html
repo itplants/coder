@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    
+    <script type="text/javascript" src="/static/GalleryView/js/jquery.timers-1.2.js"></script>
+    <script type="text/javascript" src="/static/GalleryView/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/static/GalleryView//js/jquery.galleryview-3.0-dev.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/GalleryView/css/jquery.galleryview-3.0-dev.css" />
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+        <section>
+        <h1>GalleryView</h1>
+  <!--
+  1.    http://itelepass02.local/photo のファイルリストを調べる。
+  2.    <li>要素を生成する。
+  3.    GalleryViewに再読み込みさせる。
+  -->
+  <!--  http://edison.local/photo/*.jog  -->
+    <ul id="myGallery">
+    <!-- li><img src="http://itelepass02.local/photo/11511101115.jpg" alt="11511101115"></ -->
+    <!-- li><img src="http://itelepass02.local/photo/11511122656.jpg" alt="11511122656"></ -->
+    </ul>
+     
+        </section>
+    </div>
+    
+    <!-- hr>
+    <iframe src="https://itelepass02.local:8091/app/streamcamera" width=680 height=600></iframe -->
+    <hr>
+    <button id='loadimage' onclick="reload()">再読込</button>
+    
+    <script>
+    document.open();
+    doc = '<button id="takeimage" onclick="location.href=https://'+document.location.hostname+':8091/app/streamcamera"'>撮影</button>';
+    document.write(doc);
+    document.close();
+    </script>
+
+    <hr>
+    <div>
+    <script>
+    document.open();
+    doc ='撮影した写真を見るギャラリーです。写真は、<a href="http://'+location.hostname+'/photo">http://'+location.hostname+'/photo</a>にあります。';
+    doc += '画像ファイルの削除は<a href="https://'+location.hostname+':8091/app/photoindex">photoindex</a>でできます。';
+    document.write(doc);
+    document.close();
+    </script>
+    
+    </div>
+    <!-- p>ToDo: 再読み込みが正しく動作しない。ElemenyのremoveChildが動作していない。<-->
+    <hr>
+    <p id="message"></p>
+        <p id="resultmessage"></p>
+    <script>message("");</script>
+</body>
+</html>

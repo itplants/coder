@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+
+    <!-- End Coder Includes -->
+    
+    <!-- this should go after your </body> -->
+
+    <!-- End apps includes -->
+
+<!--- CSS はここにかく -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="/static/datetimepicker/jquery.datetimepicker.css"/>
+<style type="text/css">
+.custom-date-style {
+    background-color: red !important;
+}
+</style>
+    
+    
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    
+    
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+
+   <!--script src="/static/datetimepicker/jquery.js"></script -->
+   <!---- ここにないと動作しない --->
+   <script src="/static/datetimepicker/jquery.datetimepicker.js"></script>   
+   <script src="/static/DataTables/media/js/jquery.dataTables.js"></script>
+   
+   <script src="/static/list.js/dist/list.min.js"></script>   
+   <!--script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script -->   
+   
+    <script>
+        Coder.addBasicNav();
+    </script>
+</head>
+<body class="">
+    <div class="pagecontent">
+
+<center>
+
+<h1>Camera Schedule</h1>
+<hr>
+
+<div id='settings'>
+<table name="scheduleTable" id="tableID" class="display" border=0 width=220>
+<thead>
+  <tr><th >LABEL</th><th>撮影開始時間</th><th>撮影間隔(分)</th></tr>
+</thead>
+<tbody class="list">
+</tbody>
+</table>
+</div>
+
+</center>
+<hr>
+
+<button id='addBtn' onclick="addElements()">追加</button>
+<button id='setBtn' onclick="writeElements()">設定</button>
+<button id='readBtn' onclick="load_itplanterSettings()">再読込</button> 
+<button id='readBtn' onclick="deleteAllElements()">全消去</button> 
+<hr>
+<p name='repeat'>繰返し</p>
+<!--
+<input type="radio" name="sequence" value="onlyOneDay"    disabled="disabled" >１日だけ
+-->
+<input type="radio" name="sequence" value="everyDay"      checked>毎日
+<!--
+<input type="radio" name="sequence" value="skipOneDay"    disabled="disabled">１日毎
+<input type="radio" name="sequence" value="skipTwoDays"   disabled="disabled">２日毎
+<input type="radio" name="sequence" value="skipThreeDays" disabled="disabled">３日毎
+<input type="radio" name="sequence" value="skipFourDays"  disabled="disabled">４日毎
+<input type="radio" name="sequence" value="skipFiveDays"  disabled="disabled">５日毎
+<input type="radio" name="sequence" value="skipSixDays"   disabled="disabled">６日毎
+<input type="radio" name="sequence" value="skipSevenDays" disabled="disabled">１週間毎
+-->
+<hr>
+<p id='Camera'>Camera   </p>
+<!-- input type="radio" name="camera" id='cam0' value="0" checked>Cam0</ -->
+<hr>
+<p id='Planter'>itplanter  </p>
+<!-- input type="radio" name="planter" value="0" id='itp0' checked>itplanter0</ -->
+<hr>
+<p id='led'>LED</p>
+
+<hr>
+
+最大1440個のスケジュールが入力できます。撮影開始時刻を２つ入れて、はじめの撮影開始時刻の撮影間隔を設定すると、撮影時間が自動入力されます。自動入力された結果は、再読込ボタンを押すと表示されます。設定ボタンを押すと設定が反映されます。
+<hr>
+<script type="text/javascript" language="javascript">
+doc  = '<p><a href="https://'+window.location.hostname+':8091/app/streamcamera">カメラの画像を見る</a></p>';
+document.write(doc);
+</script>
+<hr>
+
+<lu>
+<li>１台のカメラ利用の場合には、mjpeg-streamer でストリーミング配信と撮影を行います。</li>
+<hr>
+<!--
+<table name="scheduleTablePW" id="tableIDPW" class="display" border=0 width=220>
+<thead>
+  <tr><th >LABEL</th><th>Camera</th></tr>
+</thead>
+<td><button onclick="delElements('+targetnum+')" hidden>X</button></td><td><input type="text" id="worktime" onkeydown="go()" value="0"/></td>'
+<tbody></tbody>
+</table>
+-->
+
+
+
+
+<!-- p id="message"><b>Time</b></p>
+<p id="messageConsole"><b>console</b></p>
+<p id='clicked'><b>clicked</b></p>
+<p id="Error"></p>
+<p id="result"><p -->
+
+<script>addElements()</script>
+</body>
+
+</html>

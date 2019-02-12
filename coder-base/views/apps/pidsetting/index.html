@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script src="/static/highcharts-dist/highcharts.js"></script>
+    <script src="/static/highcharts-dist/modules/exporting.js"></script>
+
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body>
+<p id='msg'>データ読込中です。ちょっと待って下さい</p>
+<p id='curtmp'></p>
+<p id='targettmp'></p>
+<p id='checkTempController'></p>
+<!-- p>温度の設定　：　<input type="text" id='value' name="name" size="3" maxlength="3"onkeyup="setTempValue()"  onclick="setTempValue()">度</p -->
+<input type="button" value="グラフの再読込" onclick="redraw()"><br>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+Kp<input style="width: 80px;" type="text" id="kp" value="0.1" onchange="changePID('kp',this.value)" ></>
+Ki<input style="width: 80px;" type="text" id="ki" value="0.01" onchange="changePID('ki',this.value)" ></>
+Kd<input style="width: 80px;" type="text" id="kd" value="0.01" onchange="changePID('kd',this.value)" ></>
+<button id='saveBtn' onclick="savePID()">保存</button>
+</body>
+</html>

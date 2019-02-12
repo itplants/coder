@@ -1,0 +1,3 @@
+#!/bin/sh
+/usr/bin/sudo /bin/systemctl $1 shortperiodControl.service
+echo "OK"

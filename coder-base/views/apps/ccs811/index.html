@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+        <h1>CCS811</h1>
+
+
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/531267/charts/2?bgcolor=%23ffffff&color=%2320aa20&dynamic=true&results=60&title=TVOC&type=line"></iframe>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/531267/charts/1?bgcolor=%23ffffff&color=%23d62020&days=1&dynamic=true&max=23%3A59%3A59&min=00%3A00%3A00&results=60&title=eCO2&type=spline"></iframe>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/531267/charts/3?bgcolor=%23ffffff&color=%23202020&dynamic=true&results=60&title=BaseLine&type=line&yaxismin=0"></iframe>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/531267/charts/4?bgcolor=%23ffffff&color=%23aaaaaa&dynamic=true&results=60&title=raw&type=line&yaxismin=0"></iframe>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/531267/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E6%B8%A9%E5%BA%A6&type=line&yaxismax=40&yaxismin=0"></iframe>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/531267/charts/6?bgcolor=%23ffffff&color=%232020aa&dynamic=true&results=60&title=%E6%B9%BF%E5%BA%A6&type=line&yaxis=%25RH&yaxismax=100&yaxismin=0"></iframe>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/531267/charts/7?bgcolor=%23ffffff&color=%23aaaa20&dynamic=true&results=60&title=%E6%B0%97%E5%9C%A7&type=line&yaxismax=1050&yaxismin=980"></iframe>
+
+
+    </div>
+</body>
+</html>

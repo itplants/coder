@@ -1,0 +1,32 @@
+#!/usr/local/bin/node
+execSync = require('child_process');
+var serial=0;
+var temp=0;
+var illum=0;
+var water=0;
+var itpNo=0;
+result=require('child_process').exec('/home/coder/coder-dist/coder-base/sudo_scripts/sendcom 1 -e Z',function(err,stdout,stderr){
+		//console.log('Z',stdout)
+		serial = stdout.split('\n')[1];
+result=require('child_process').exec('/home/coder/coder-dist/coder-base/sudo_scripts/sendcom 1 -e A',function(err,stdout,stderr){
+		//console.log('A',stdout)
+		temp = stdout.split('\n')[1];
+result=require('child_process').exec('/home/coder/coder-dist/coder-base/sudo_scripts/sendcom 1 -e B',function(err,stdout,stderr){
+		//console.log('B',stdout)
+		water = stdout.split('\n')[1];
+result=require('child_process').exec('/home/coder/coder-dist/coder-base/sudo_scripts/sendcom 1 -e F',function(err,stdout,stderr){
+		//console.log('F',stdout)
+		illum = stdout.split('\n')[1];
+result=require('child_process').exec('/home/coder/coder-dist/coder-base/sudo_scripts/sendcom 1 -e D',function(err,stdout,stderr){
+		//console.log('D',stdout)
+		tmp = stdout.split('\n')[1];
+		tmp = tmp.split('  ');
+		itpNo=tmp[0]+' '+tmp[1];
+		console.log( 'serial',serial, temp, illum, water, itpNo);
+});
+
+});
+});
+});
+});
+

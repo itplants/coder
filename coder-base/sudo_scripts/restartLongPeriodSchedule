@@ -1,0 +1,3 @@
+#!/bin/sh
+/usr/bin/sudo /bin/systemctl $1 longPeriodSchedule.service
+echo "OK"

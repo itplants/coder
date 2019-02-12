@@ -1,0 +1,3 @@
+targetTemp 15 start 00:00
+targetHum 45 start 00:00
+setPID Kp 100 Ki 0.085 Kd 0.0125

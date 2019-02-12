@@ -1,0 +1,110 @@
+#!/usr/bin/env python
+#
+#
+# psendcom : Usage  device  [-e] command
+#	command is same as sendcom
+#
+#
+
+import commands
+import sys 
+
+argvs = sys.argv
+argc = len(argvs)
+
+if (argc < 3):
+    print 'Usage: %s no command' % argvs[0]
+    quit()
+
+
+if argvs[2]=='-e':
+	argvs[2]=argvs[3]
+
+dno=argvs[1]
+com=argvs[2]
+
+#	print 'Temp'   # A
+#	print 'Serial' # Z
+check = commands.getoutput("/usr/bin/sudo /usr/local/bin/sendcom '*' -e Z")
+#print check
+
+check = check.replace('\n\n','\n');
+li = check.split('\n');
+
+#print len(li)
+data=li[1:len(li):2]
+
+c=[]
+for s in data:
+	c.append(s.replace('Temp ',''))
+else:
+#print'|', c,'|'
+	ndevices=len(c)
+
+# open USB-Serial Table File
+f = open('/home/coder/coder-dist/coder-base/config/USBSerial.txt','r')
+g = f.read()
+f.close()
+h=g.split('\n')
+no=''
+usb=''
+serl=''
+i=0
+
+noArray=[]
+usbArray=[]
+serialArray=[]
+
+for s in h:
+	u = s.split(',')
+	if len(u) > 3:
+		# print u
+		no  = u[1]
+		usb = u[3]
+		serial = u[5]
+		# print 'no=',no, 'usb=',usb, 'serial=',serial
+		noArray.append(no)
+		serialArray.append(serial)	
+		usbArray.append(usb)
+		
+#print serialArray 
+
+matched_list = []
+for tag in serialArray:
+	matched_list+=filter(lambda str: str == tag, c)
+#	print matched_list
+
+nmatch=len(matched_list)
+
+if ndevices!=nmatch:
+	print nmatch, 'n devices=',ndevices
+	print "remake USBSerial.txt"
+#    	quit()
+
+dmax=len(noArray)  
+#print 'dno=',dno,' max=',dmax
+
+
+if argvs[1]=="*":
+#	print "* found"
+# all devices
+#	for s in noArray:
+	for s in usbArray:
+		command="/usr/bin/sudo /usr/local/bin/sendcom "+str(s)+" -e "+str(com)
+		print command
+		check = commands.getoutput(command)
+		value=check.split('\n')
+		print value[1]
+	
+elif dmax>=int(dno):
+	ddno=noArray.index(dno)
+	#print ddno
+	command="/usr/bin/sudo /usr/local/bin/sendcom "+usbArray[int(ddno)]+" -e "+str(com)
+	print command
+	check = commands.getoutput(command)
+	value=check.split('\n')
+	print value[1]
+	quit()
+else:
+	print "Over Number. should be less than ",len(noArray)
+	quit()

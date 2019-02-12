@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+    <h2>sendcom command list<h2>
+<h6>
+<table border="1" width="640" cellspacing="0" cellpadding="5" bordercolor="#333333">
+
+<tr>
+<th>
+コマンド
+</th>
+<th>
+引数
+</th>
+<th>
+説明
+</th>
+</tr>
+
+<tr>
+<td>
+A
+</td>
+<td>
+なし
+</td>
+<td>
+温度センサーの値を返します
+</td>
+</tr>
+
+<tr>
+<td>
+B
+</td>
+<td>
+なし
+</td>
+<td>
+水位センサーの値を返します
+</td>
+</tr>
+
+<tr>
+<td>
+C
+</td>
+<td>
+なし
+</td>
+<td>
+接触式水位センサーの値を返します
+</td>
+</tr>
+
+<tr>
+<td>
+D
+</td>
+<td>
+なし
+</td>
+<td>
+アイティプランターの台数を返します
+</td>
+</tr>
+<tr>
+<td>
+F
+</td>
+<td>
+なし
+</td>
+<td>
+照度センサーの値を返します
+</td>
+</tr>
+
+<tr>
+<td>
+G
+</td>
+<td>
+hhmmss
+</td>
+<td>
+リアルタイム・クロックの値を返します。時刻設定例　(12:34:56を設定する場合) G123456、(現在時間を設定する場合) ^
+</td>
+</tr>
+
+<tr>
+<td>
+H
+</td>
+<td>
+dd
+</td>
+<td>
+LEDライトのPWMを設定します。100で100％（最大）、0で0％（消灯）します。
+</td>
+
+<tr>
+<td>
+L
+</td>
+<td>
+0/1
+</td>
+<td>
+LEDライトを点灯(1)、消灯(0)します。
+</td>
+</tr>
+
+<tr>
+<td>
+U
+</td>
+<td>
+dd
+</td>
+<td>
+ポンプの動作時間を設定します。
+</td>
+</tr>
+
+<tr>
+<td>
+o
+</td>
+<td>
+なし
+</td>
+<td>
+PCモードにします。1分後に、自動モードに変わります。
+</td>
+</tr>
+
+<tr>
+<td>
+s
+</td>
+<td>
+なし
+</td>
+<td>
+工場出荷値に戻します。
+</td>
+</tr>
+
+<tr>
+<td>
+f
+</td>
+<td>
+d
+</td>
+<td>
+ライト動作設定数を設定します。
+</td>
+</tr>
+
+<tr>
+<td>
+W
+</td>
+<td>
+n,start,cont
+</td>
+<td>
+n番目のライトスケジュールを設定します。start,contは、分単位で入力。contは継続時間です。
+</td>
+</tr>
+
+<tr>
+<td>
+g
+</td>
+<td>
+d
+</td>
+<td>
+ポンプ動作設定数を設定します。
+</td>
+</tr>
+
+<tr>
+<td>
+X
+</td>
+<td>
+n,start
+</td>
+<td>
+n番目のポンプスケジュールを設定します。startは分単位で入力。ポンプ動作時間だけ動作します。
+</td>
+</tr>
+
+<tr>
+<td>
+n
+</td>
+<td>
+n
+</td>
+<td>
+デュティ（ライトの明るさ）の設定数を設定します。
+</td>
+</tr>
+
+<tr>
+<td>
+Y
+</td>
+<td>
+n,start,duty
+</td>
+<td>
+デュティ（ライトの明るさ）のスケジュールを設定します。
+</td>
+</tr>
+
+</table>
+<hr>
+<div>注意</div>
+<ul>
+<li>
+コマンド　oを発行しないと、すぐに、auto modeに戻ります。先ず、oを送信してから、LやPを送信してください。
+</li>
+<li>
+コマンド　oを発行しても、何もしなければ、auto modeに戻ります。</li>
+</ul>
+
+<h6>
+</p>
+    </div>
+</body>
+</html>

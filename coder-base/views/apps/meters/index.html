@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+<div class="pagecontent">
+<button id="change_lang" onclick="showLangage()" >日本語</button>
+<hr>
+<div id='meters'></div>
+<hr>　
+<input type='range' min="0" max="100" id="Hrange" step="5" value="90" onchange="command('o');command('H'+this.value);message('H'+this.value)"></>
+<button onclick="command2('L')" class="jp">ライト</button>
+<button onclick="command2('L')" class="en">Light</button>
+<button onclick="command2('P')" class="jp">ポンプ</button>
+<button onclick="command2('P')" class="en">Pump</button>
+<button onclick="command2('b')" class="jp">青LED</button>
+<button onclick="command2('b')" class="en">Blue LED</button>
+<button onclick="command2('r')" class="jp">赤LED</button>
+<button onclick="command2('r')" class="en">Red LED</button>
+<button onclick="command2('c0')"class="jp">白LED</button>
+<button onclick="command2('c0')"class="en">White LED</button>
+<button onclick="command('s^')" class="jp">リセット</button>
+<button onclick="command('s^')" class="en">Reset</button>
+<button onclick="command('G^')" class="jp">時計合わせ</button>
+<button onclick="command('G^')" class="en">Adjust Clock</button>
+<button onclick="drawCircle()"  class="jp">水位レベル</button>
+<button onclick="drawCircle()"  class="en">Water Level</button>
+<canvas id="signal" width="25" height="25"></canvas>
+<hr>
+<div class="jp">５分に１度、更新されます。お急ぎの場合には、updateボタンを押してください。</div>
+<div class="en">Meters are update by every 5 minites, Clock update button, then update immediately.</div>
+<hr>
+<!-- button onclick="takepic()">Camera</button -->
+<p id='message'></p>
+
+<!--
+<h1 class="jp">日本語見出し</h1>
+<h1 class="en">English Title</h1>
+<p class="jp">日本語の本文です。日本語の本文です。日本語の本文です。日本語の本文です。</p>
+<p class="en">Text in English. Text in English. Text in English. Text in English. Text in English. </p>
+-->    
+        
+</div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/sudo /usr/bin/python /home/pi/src/ITBOX/setTemps.py $1 $2 $3

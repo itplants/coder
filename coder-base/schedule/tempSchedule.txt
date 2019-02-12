@@ -1,0 +1,2 @@
+targetTemp 26 start 0:0
+setPID Kp 220 Ki 0.05 Kd 0.0125

@@ -1,0 +1,60 @@
+
+.pagecontent {
+    padding: 24px;
+}
+
+/* shapeshift  */
+    .container {
+      border: 1px dashed #FFF;
+      position: relative;
+    }
+
+    .container > div {
+      background: #FFF;
+      position: absolute;
+      height: 200px;
+      width: 300px;
+    }
+
+    .container > div[data-ss-colspan="2"] { width: 410px; }
+    .container > div[data-ss-colspan="3"] { width: 520px; }
+
+    .container > .ss-placeholder-child {
+      background: transparent;
+      border: 1px dashed blue;
+    }
+    
+/* popup */
+.pop a:hover{ /*マウスが乗ったら*/
+        position: relative;
+        z-Index:1;
+        top: 0px; left: 0px;
+}
+
+.fukidasipop { /*吹き出し本体*/
+        position: absolute;
+        z-Index:1;
+        
+        top:-40px; left:40px;
+        
+        display: none; /*何も表示しない*/
+        padding: 5px; /*内側の余白*/
+        width: 200px; /*ブロックの幅
+        font-weight: bold; /*文字の太さ*/
+        text-decoration: none; /*文字飾り*/
+        color: #ffffff; /*文字色*/
+        background-color: #b22222; /*背景色*/
+
+        border-top:white solid 0px;
+        border-left:#b22222 solid 10px;
+
+     filter: alpha(opacity=85); /* IE */
+　　-moz-opacity:0.85;  /*Firefox・Netscape */
+  　opacity:0.85; /* Opera・Safari */
+
+}
+a:hover .fukidasipop {
+        display: block; /*ブロック要素で表示*/
+        position: absolute;
+        z-Index:1;
+}

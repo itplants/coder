@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+    
+    <!-- input type="checkbox" id='1' name="moge" onchange="changePlanterNo(this);">Yes<-->
+    
+    <div>アイティプランターのセンサー値を校正します。</div>
+    <h1>校正の手順</h1>
+    <ol>
+    <li>温度計で測定した温度を入力して設定ボタンを押してください。</li>
+    <li>養液タンクを空にして設定ボタンを押してください。</li>
+    <li>養液タンクを満タンにして設定ボタンを押してください。</li>
+    <li>照度計の値を入力して設定ボタンを押してください。</li>
+    </ol>
+<table border=1>
+  <tr>
+    <td>現在の温度[度]</td><td id="curr_temp">0</td>
+    <td>正確な温度[%]</td><td><input type="text" id="correcttemp" size="5" maxlength="4" value=0 onkeypress="settemp(event.keyCode);"  ></td>
+    <td>温度の補正値</td><td id="tempcoeff">0</td>
+    <td><input type="button" value="設定" onclick="settemp(13)"></td>
+  </tr>
+  <tr>
+    <td>空の時の水位[0%]</td><td id="curr_waterempty">0</td>
+    <td>正確な空の水位[%]</td><td><input type="text" id="correctwaterempty" size="5" maxlength="4" value=0 onkeypress="setempty(event.keyCode);" ></td>
+    <td>空水位の補正値</td><td id="waterempty">0</td>
+    <td><input type="button" value="設定" onclick="setempty(13)"></td>
+  </tr>
+  <tr>
+    <td>満水時の水位[100%]</td><td id="curr_waterfull">100</td>
+    <td>満水時の水位[%]</td><td><input type="text" id="correctwaterfull" size="5" maxlength="4" value=100 onkeypress="setfull(event.keyCode);" ></td>
+    <td>満水位の補正値</td><td id="waterfull">100</td>
+    <td><input type="button" value="設定" onclick="setfull(13)"></td>
+  </tr>
+  <tr>
+    <td>現在の照度[lux]</td><td id="curr_illum">0</td>
+    <td>正確な照度[lux]</td><td><input type="text" id="correctillum" size="5" maxlength="4" value=0 onkeypress="setillum(event.keyCode);" ></td>
+    <td>照度の補正値</td><td id="illumcoeff">0</td>
+    <td><input type="button" value="設定" onclick="setillum(13)"></td>
+  </tr>
+ </table> 
+    <input type="button" value="再読込" onclick="loadInfor()"></td>
+    <!-- input type="button" value="設定値読込" onclick="loadData()"></td -->
+    <input type="button" value="保存" onclick="saveData()"></td>
+    <input type="button" value="消去" onclick="delData()"></td>
+    <!-- input type="button" value="再表示" onclick="display_value()"></td -->
+<hr>
+ 
+<h1>校正後の値</h1>
+
+<table border=1>
+<tr>
+    <td>温度<td><td id='T'>0</td><td>度</td>
+</tr>
+<tr>
+    <td>水位<td><td id='W'>0</td><td>%</td>
+</tr>
+<tr>
+    <td>照度<td><td id='I'>0</td><td>lux</td>
+</tr>
+</table>
+    
+ <p id='Serial'></p>
+<hr>
+
+ 
+ <h1>選択</h1>
+<!-- input type='text' id='output' value='送信ファイル名を入力'></ -->
+<p id='Planter'>itplanter  </p>
+<button onclick="selectAllPlanter()">全選択</button>
+<button onclick="selectFirstPlanter()">全選択解除</button> 
+校正するアイティプランターを選択
+<hr>
+
+    </div>
+    <p id='mm'></p>
+    <p id='m1'></p>
+    <p id='m2'></p>
+
+    
+    <p><a href="javascript:history.back();">戻る</a></p>
+</body>
+</html>

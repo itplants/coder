@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+        <h1>mkUpdater</h1>
+<p>Updaterを作るアプリです。アプリを修正した時には、アップデータを作成してアップしましょう。</p>
+アップデートするアプリを複数選んで、アップテータ作成ボタンを押します。
+<hr>
+<p id='list'></p>
+<hr>
+<button onclick="makeUpdater()">アップテータ作成</button>
+アップテータ:<label id='updater'></label>
+<p>アップデータファイルは、<a href="http://itelepass02.local/update">/home/pi/htdocs/update/</a>にできます。</p>
+<p>アップデータファイルが日付なので、1日に何度もアップデータ作成を行うと上書きされます。</p>
+<hr>
+<p>SELECT:<label id='input'></label></p>
+<p>UPDATE FILES:<label id='output'></label></p>
+<hr>
+<p id='message'></p>
+</div>
+</body>
+</html>

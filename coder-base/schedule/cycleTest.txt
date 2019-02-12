@@ -1,0 +1,11 @@
+targetTemp 20 start 00:00
+targetTemp 22 start 02:00
+targetTemp 20 start 04:00
+targetTemp 22 start 12:00
+targetTemp 20 start 14:00
+targetTemp 18 start 16:00
+targetTemp 20 start 18:00
+targetTemp 22 start 20:00
+targetTemp 20 start 22:00
+targetTemp 18 start 23:00
+setPID Kp 280 Ki 0.0056 Kd 0.00014

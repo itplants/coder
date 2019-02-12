@@ -1,0 +1,6 @@
+#!/bin/sh
+cd  /home/pi/src/ITBOX
+/usr/bin/nohup /home/pi/src/ITBOX/stepResponse.py > /dev/null &
+#
+#/usr/bin/sudo /bin/systemctl start stepResponse
+echo "Start stepResponse.py"

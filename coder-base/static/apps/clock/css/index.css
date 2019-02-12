@@ -1,0 +1,31 @@
+
+.pagecontent {
+    padding: 24px;
+}
+
+.clock_face { 
+    width: 200px;
+	height: 200px;
+	background-image: url("/static/common/media/images/clock_face.png");
+	position: relative;
+}
+
+.clock_hours,
+.clock_minutes,
+.clock_seconds { 
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.clock_hours2,
+.clock_minutes2,
+.clock_seconds2 { 
+    width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}

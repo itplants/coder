@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+
+    <script src="/static/highcharts-dist/highcharts.js"></script>
+    <script src="/static/highcharts-dist/modules/exporting.js"></script>
+ <!---
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+--->
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+    
+</head>
+<body>
+<p id='msg'>データ読込中です。ちょっと待って下さい</p>
+<p id='curtmp'></p><p id='targettmp'></p>
+<p id='checkTempController'></p>
+<!-- p>温度の設定　：　<input type="text" id='value' name="name" size="3" maxlength="3"onkeyup="setTempValue()"  onclick="setTempValue()">度</p -->
+<input type="button" value="グラフの再読込" onclick="reMakeGraph()"><br>
+
+<input type="button" value="今日のグラフの読込" onclick="loadOneDay([''])"><br>
+
+<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>毎時0分にファイルが更新されます。</p>
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>PWM100%が最大出力です。</p>
+<div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container5" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>ペルチェ温度が露点よりも低い場合、結露しています。</p>
+
+<input type="button" value="グラフの再読込" onclick="reMakeGraph0()"><br>
+
+</body>
+</html>

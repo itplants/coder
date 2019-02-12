@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+
+<!--- CSS はここにかく -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="/static/datetimepicker/jquery.datetimepicker.css"/>
+<style type="text/css">
+.custom-date-style {
+    background-color: red !important;
+}
+</style>
+
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+   <!---- ここにないと動作しない --->
+   <script src="/static/datetimepicker/jquery.datetimepicker.js"></script>   
+   <script src="/static/DataTables/media/js/jquery.dataTables.js"></script>
+
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+<center>
+<h1>setTime</h1><br>
+<div id='settings'>
+<table name="scheduleTable" id="tableID" class="display" border=0 width=220>
+<thead>
+  <tr><th>時刻設定</th></tr>
+</thead>
+<tbody class="list">
+</tbody>
+</table>
+</div>
+
+<div>
+<table>
+<thead>
+<tr><th>アイティプランターの内蔵時計</th><th><p id='setITPLANTERClock'></p></th></td>
+</thead>
+</table>
+</div>
+
+<button id='addBtn' onclick="setITBOXTime()">設定</button>
+<button id='setBtn' onclick="cancel()">キャンセル</button>
+<button id='copyBtn' onclick="copyTime()">アイティプランターの時刻をコピー</button>
+<br>
+<hr>
+<p>
+ITBOX-Sがインターネットにつながっていない場合には、時刻を設定する必要があります。
+時刻を入力して、設定ボタンを押してください。アイティプランターの時刻をコピーを押すと、アイティプランター内のRTCの時刻がITBOXのRaspberry Piの時刻として設定されます。
+</p>
+</center>
+</div>
+    
+</body>
+</html>

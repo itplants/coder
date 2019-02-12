@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/sudo /bin/systemctl $1 $2 $3

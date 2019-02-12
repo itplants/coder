@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+    
+    <script src="/static/highcharts-dist/highcharts.js"></script>
+    <script src="/static/highcharts-dist/modules/exporting.js"></script>
+    <script src="/static/pot.min.js"></script>
+    
+    <!-- script src="{{&static_url}}/HighChartGraph/webroot/js/highcharts.js"></script>
+    <!--script src="{{&static_url}}/HighChartGraph/webroot/js/exporting.js"></script -->
+    <!--script src="{{&static_url}}/potlite.min.js"></script-->
+
+</head>
+<body class="" id='body'>
+    <div class="pagecontent">
+    <br> <br>
+<div id="container" style="min-width: 310px; height: 400px; margin: 250 auto"></div>
+<hr>
+<input id="radioTemp" type="radio" name="radiosw"  value="temp"  onclick="saveResource('temp')" checked>温度
+<input id="radioHum" type="radio" name="radiosw" value="hum" onclick="saveResource('hum')">相対湿度
+<input id="radioAH" type="radio" name="radiosw" value="AH" onclick="saveResource('AH')">絶対湿度
+<input id="radioPress" type="radio" name="radiosw" value="press" onclick="saveResource('press')">気圧
+<input id="radioIllum" type="radio" name="radiosw" value="illum" onclick="saveResource('illum')">照度
+<input id="radioPWM" type="radio" name="radiosw" value="pwm" onclick="saveResource('pwm')">パワー
+<input id="radioCondens" type="radio" name="radiosw" value="peltier" onclick="saveResource('peltier')">ペルチェ温度
+<input id="radioCondens" type="radio" name="radiosw" value="condensation" onclick="saveResource('condensation')">露点
+<button id='readfile' onclick="readDataFile()">読込</button>
+<hr>
+<p id='list'></p>
+<hr>
+<!-- p
+onmouseover='style.backgroundColor = "#22ff22"' onmouseout='style.backgroundColor = "white"'
+>
+test
+</p -->
+
+    <!--button id='update'  onclick="update()">更新</button -->
+    <button id='readfile' onclick="readDataFile()">読込</button>
+    <button id='newfile' onclick="oneDayLog()">1日ログ作成</button>
+    <button id='newfile' onclick="lsDataFile()">検索</button>
+    <button id='newfile' onclick="fileRemove()">削除</button>
+    <button id='newfile' onclick="oneDayLogRemove()">1日分ログ削除</button>
+    <button id='newfile' onclick="allDayLog()">全ての1日ログ作成しログ削除</button>
+<p id='messageConsole'></p>
+    <!-- p id='prgBar' style="display:inline"><progress id='progress' value="0" max="100"  ><span>0</span>%</progress> (<span id='prgVal'>0</span>%)</p -->
+<p><a href="javascript:history.back();">戻る</a></p>
+</div>
+<p id='message'></p>
+<p id='result'></p>
+<p id='hide' disabled></p>
+<hr>
+<div>
+<script type="text/javascript" language="javascript">
+doc  = '測定データは、<a href="http://'+window.location.hostname+'/data/">/mnt/data</a>の中にあります。';
+//dataCaptureデーモンにより<a href="http://'+location.hostname+'/data/itplanterCapturedData.csv">itplanterCapturedData.csv</a> に追記記録されます。新規ボタンを押すと、新しく記録を始めます。古いファイルは、その日のタイムスタンプ付きのファイル名になります。X軸の目盛を均等間隔で見るには、<a href="https://'+location.hostname+':8091/app/highchartgraph">highchartgraph</a>を使ってください。';
+document.write(doc);
+</script>
+</div>
+</body>
+</html>

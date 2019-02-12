@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+#	make updater Updater1502211020.taz
+#
+
+cd /home/coder/update
+
+/bin/rm -rf Updater
+/bin/mkdir  Updater
+/bin/mkdir  Updater/apps
+/bin/mkdir  Updater/views
+/bin/mkdir  Updater/views/apps
+/bin/mkdir  Updater/static
+/bin/mkdir  Updater/static/apps
+
+/bin/cp cpapp.sh Updater
+/bin/cp update.sh  Updater
+/bin/cp mkupdater.sh Updater 
+
+/bin/cat /dev/null > updatelist.txt
+for var in $@; do
+echo $var >>  updatelist.txt 
+done
+
+/bin/cp updatelist.txt  Updater
+
+#
+for var in $@; do
+/bin/sh ./cpapp.sh $var
+#echo "./cpapp.sh" $var
+done
+#
+
+d=`/bin/date '+%y%m%d'`
+
+file="itelepass2update${d}.taz"
+/bin/tar zcf $file  Updater
+
+echo $file
+echo "OK"

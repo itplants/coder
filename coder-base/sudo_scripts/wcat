@@ -1,0 +1,3 @@
+#!/bin/sh
+/usr/bin/sudo /bin/echo $2 > $1
+echo $1

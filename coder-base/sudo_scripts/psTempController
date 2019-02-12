@@ -1,0 +1,8 @@
+#!/bin/sh                                                                       
+#!/bin/sh
+res=`/bin/ps auxg |  /bin/grep "tempController" | /bin/grep -v grep`
+if [$res == ""]; then
+echo "No Process"
+else
+echo $res
+fi

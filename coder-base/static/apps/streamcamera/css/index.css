@@ -1,0 +1,11 @@
+
+.pagecontent {
+    padding: 24px;
+}
+
+
+
+.flip-vertical {
+    transform: scale(1, -1);
+}
+

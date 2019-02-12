@@ -1,0 +1,737 @@
+itplanter status
+Temp 13.6
+Water 343
+Full=0 Empty=0
+PWM 90
+nPump 4
+nDuty 1
+h 18 m 37 s 25 mm 1117
+nLamp 3
+PumpWorkTime 60
+Pump Schedule 1 660 
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Pump Schedule 3 1380 
+Lamp Schedule 2 900 240
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Temp 13.6
+Water 342
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Full=0 Empty=0
+Temp 13.7
+Water 342
+PWM 90
+Full=0 Empty=0
+nPump 4
+nLamp 3
+nDuty 1
+PumpWorkTime 60
+h 18 m 42 s 16 mm 1122
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Lamp Schedule 1 660 240
+Lamp Schedule 0 420 240
+Lamp Schedule 2 900 240
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+Temp 13.9
+Water 343
+Full=0 Empty=0
+PumpWorkTime 60
+nLamp 3
+nDuty 1
+h 18 m 47 s 42 mm 1127
+PWM 90
+nPump 4
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Duty Schedule 0 0 90
+Lamp Schedule 2 900 240
+Pump Schedule 2 1020 
+Pump Schedule 1 660 
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Temp 14.0
+Water 343
+Full=0 Empty=0
+PumpWorkTime 60
+PWM 90
+nLamp 3
+nPump 4
+h 18 m 56 s 59 mm 1136
+nDuty 1
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 3 1380 
+Pump Schedule 1 660 
+Pump Schedule 0 300 
+Duty Schedule 0 0 90
+Pump Schedule 2 1020 
+Temp 14.2
+Water 343
+
+
+Full=0 Empty=0
+nLamp 3
+Water 338
+
+h 18 m 58 s 3 mm 1138
+nPump 4
+
+nDuty 1
+Full=0 Empty=0
+nDuty 1
+Lamp Schedule 2 900 240
+Lamp Schedule 1 660 240
+PumpWorkTime 60
+h 18 m 58 s 4 mm 1138
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Lamp Schedule 0 420 240
+Temp 14.0
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Duty Schedule 0 0 90
+PWM 90
+Duty Schedule 0 0 90
+Temp 14.0
+Water 343
+Full=0 Empty=0
+PumpWorkTime 60
+nLamp 3
+PWM 90
+nDuty 1
+nPump 4
+Lamp Schedule 2 900 240
+Lamp Schedule 1 660 240
+h 18 m 58 s 11 mm 1138
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Lamp Schedule 0 420 240
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Temp 12.2
+Water 338
+Full=0 Empty=0
+nDuty 1
+nLamp 3
+PumpWorkTime 60
+PWM 90
+Duty Schedule 0 0 90
+h 20 m 8 s 22 mm 1208
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+nPump 4
+Lamp Schedule 2 900 240
+Pump Schedule 1 660 
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Pump Schedule 2 1020 
+Temp 12.2
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nLamp 3
+nDuty 1
+h 20 m 20 s 20 mm 1220
+Water 338
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+nPump 4
+Duty Schedule 0 0 90
+Lamp Schedule 2 900 240
+Pump Schedule 1 660 
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Pump Schedule 2 1020 
+Temp 11.9
+Water 338
+PumpWorkTime 60
+Full=0 Empty=0
+h 20 m 21 s 25 mm 1221
+nLamp 3
+nDuty 1
+nPump 4
+PWM 90
+Lamp Schedule 2 900 240
+Lamp Schedule 0 420 240
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Lamp Schedule 1 660 240
+Temp 11.9
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nLamp 3
+nPump 4
+Water 336
+h 20 m 21 s 27 mm 1221
+nDuty 1
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 1 660 
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+Temp 11.7
+Water 338
+Full=0 Empty=0
+PumpWorkTime 60
+PWM 90
+nPump 4
+h 20 m 39 s 40 mm 1239
+nDuty 1
+Pump Schedule 1 660 
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Duty Schedule 0 0 90
+Pump Schedule 2 1020 
+nLamp 3
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+nPump 4
+nLamp 3
+PumpWorkTime 60
+h 20 m 39 s 45 mm 1239
+Pump Schedule 0 300 
+nDuty 1
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Lamp Schedule 0 420 240
+Lamp Schedule 2 900 240
+Lamp Schedule 1 660 240
+Duty Schedule 0 0 90
+Pump Schedule 1 660 
+Temp 11.7
+Water 338
+Full=0 Empty=0
+PumpWorkTime 60
+PWM 90
+nPump 4
+nDuty 1
+nLamp 3
+h 20 m 39 s 46 mm 1239
+Pump Schedule 1 660 
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Pump Schedule 3 1380 
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Pump Schedule 2 1020 
+Lamp Schedule 2 900 240
+Temp 11.7
+Water 338
+Full=0 Empty=0
+PWM 90
+nLamp 3
+nPump 4
+PumpWorkTime 60
+nDuty 1
+h 20 m 40 s 17 mm 1240
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 2 1020 
+Pump Schedule 0 300 
+Duty Schedule 0 0 90
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Temp 11.7
+Water 338
+Full=0 Empty=0
+PWM 90
+h 20 m 40 s 18 mm 1240
+nDuty 1
+PumpWorkTime 60
+nLamp 3
+nPump 4
+Duty Schedule 0 0 90
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 0 300 
+Pump Schedule 2 1020 
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Temp 11.7
+Water 336
+Full=0 Empty=0
+nLamp 3
+nDuty 1
+PumpWorkTime 60
+PWM 90
+h 20 m 42 s 16 mm 1242
+nPump 4
+Temp 11.7
+Water 338
+Full=0 Empty=0
+PWM 90
+nLamp 3
+h 20 m 20 s 20 mm 1220
+nDuty 1
+PumpWorkTime 60
+nPump 4
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PumpWorkTime 60
+h 20 m 42 s 21 mm 1242
+PWM 90
+nLamp 3
+nPump 4
+nDuty 1
+Lamp Schedule 1 660 240
+Lamp Schedule 0 420 240
+Lamp Schedule 2 900 240
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Pump Schedule 0 300 
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+nPump 4
+PumpWorkTime 60
+nDuty 1
+nLamp 3
+Pump Schedule 0 300 
+h 20 m 42 s 25 mm 1242
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Duty Schedule 0 0 90
+Lamp Schedule 1 660 240
+Lamp Schedule 0 420 240
+Lamp Schedule 2 900 240
+Temp 11.7
+Full=0 Empty=0
+PWM 90
+Water 335
+nPump 4
+nLamp 3
+nDuty 1
+h 20 m 42 s 56 mm 1242
+PumpWorkTime 60
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Lamp Schedule 0 420 240
+Duty Schedule 0 0 90
+Lamp Schedule 2 900 240
+Lamp Schedule 1 660 240
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nDuty 1
+nLamp 3
+nPump 4
+h 20 m 45 s 27 mm 1245
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Pump Schedule 3 1380 
+Pump Schedule 1 660 
+Unknown Command ||
+Lamp Schedule 2 900 240
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nLamp 3
+nPump 4
+nDuty 1
+h 20 m 45 s 56 mm 1245
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Lamp Schedule 2 900 240
+Pump Schedule 3 1380 
+Duty Schedule 0 0 90
+Temp 11.6
+Full=0 Empty=0
+nPump 4
+h 20 m 45 s 58 mm 1245
+Pump Schedule 0 300 
+nDuty 1
+PWM 90
+Pump Schedule 3 1380 
+nLamp 3
+Water 338
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+PumpWorkTime 60
+Lamp Schedule 2 900 240
+Pump Schedule 1 660 
+Lamp Schedule 1 660 240
+Lamp Schedule 0 420 240
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+h 20 m 46 s 47 mm 1246
+nDuty 1
+nPump 4
+nLamp 3
+PumpWorkTime 60
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Lamp Schedule 2 900 240
+Lamp Schedule 1 660 240
+Lamp Schedule 0 420 240
+Temp 11.6
+Full=0 Empty=0
+nLamp 3
+PWM 90
+Water 338
+nPump 4
+PumpWorkTime 60
+nDuty 1
+h 20 m 46 s 59 mm 1246
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 3 1380 
+Pump Schedule 2 1020 
+Pump Schedule 1 660 
+Lamp Schedule 0 420 240
+Pump Schedule 0 300 
+Duty Schedule 0 0 90
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+nLamp 3
+PumpWorkTime 60
+nPump 4
+nDuty 1
+h 20 m 47 s 57 mm 1247
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 0 300 
+Pump Schedule 2 1020 
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Duty Schedule 0 0 90
+Lamp Schedule 0 420 240
+Temp 11.6
+Full=0 Empty=0
+PWM 90
+Water 337
+nDuty 1
+nLamp 3
+PumpWorkTime 60
+h 20 m 48 s 7 mm 1248
+Lamp Schedule 0 420 240
+Lamp Schedule 2 900 240
+Duty Schedule 0 0 90
+Lamp Schedule 1 660 240
+nPump 4
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Temp 11.6
+Water 323
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nLamp 3
+nDuty 1
+h 20 m 52 s 0 mm 1252
+nPump 4
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Temp 11.6
+Water 338
+
+
+
+
+
+
+
+
+
+
+
+Full=0 Empty=0
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PumpWorkTime 60
+nDuty 1
+PWM 90
+nPump 4
+nLamp 3
+h 20 m 52 s 39 mm 1252
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PumpWorkTime 60
+PWM 90
+nLamp 3
+nDuty 1
+nPump 4
+Lamp Schedule 0 420 240
+h 20 m 52 s 43 mm 1252
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 0 300 
+Duty Schedule 0 0 90
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Pump Schedule 1 660 
+Temp 11.4
+Water 338
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nLamp 3
+nPump 4
+nDuty 1
+h 20 m 56 s 50 mm 1256
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Duty Schedule 0 0 90
+Pump Schedule 3 1380 
+Pump Schedule 2 1020 
+Temp 11.4
+Water 338
+Full=0 Empty=0
+PumpWorkTime 60
+nPump 4
+nDuty 1
+h 20 m 56 s 50 mm 1256
+PWM 90
+Pump Schedule 0 300 
+nLamp 3
+Pump Schedule 1 660 
+Duty Schedule 0 0 90
+Pump Schedule 2 1020 
+Lamp Schedule 2 900 240
+Pump Schedule 3 1380 
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Temp 11.6
+Water 338
+Full=0 Empty=0
+h 20 m 56 s 54 mm 1256
+PWM 90
+nPump 4
+nLamp 3
+PumpWorkTime 60
+Pump Schedule 0 300 
+nDuty 1
+Pump Schedule 2 1020 
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Lamp Schedule 2 900 240
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Duty Schedule 0 0 90
+Temp 11.6
+Water 338
+PWM 90
+h 20 m 56 s 55 mm 1256
+nPump 4
+nDuty 1
+Full=0 Empty=0
+Pump Schedule 0 300 
+Pump Schedule 2 1020 
+PumpWorkTime 60
+Pump Schedule 3 1380 
+nLamp 3
+Duty Schedule 0 0 90
+Pump Schedule 1 660 
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Temp 11.4
+Water 338
+PWM 90
+
+
+
+Full=0 Empty=0
+
+h 20 m 57 s 3 mm 1257
+Temp 11.6
+Water 338
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Full=0 Empty=0
+Temp 11.4
+Water 338
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nLamp 3
+nPump 4
+nDuty 1
+h 20 m 58 s 4 mm 1258
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Lamp Schedule 2 900 240
+Pump Schedule 0 300 
+Pump Schedule 2 1020 
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Duty Schedule 0 0 90
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PumpWorkTime 60
+PWM 90
+nDuty 1
+h 20 m 58 s 6 mm 1258
+nLamp 3
+nPump 4
+Duty Schedule 0 0 90
+Lamp Schedule 0 420 240
+Lamp Schedule 2 900 240
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Lamp Schedule 1 660 240
+Pump Schedule 2 1020 
+Temp 11.6
+Water 338
+PWM 90
+PumpWorkTime 60
+nLamp 3
+Full=0 Empty=0
+nPump 4
+nDuty 1
+Lamp Schedule 0 420 240
+h 20 m 58 s 8 mm 1258
+Lamp Schedule 2 900 240
+Duty Schedule 0 0 90
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Lamp Schedule 1 660 240
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nPump 4
+nLamp 3
+nDuty 1
+h 20 m 58 s 26 mm 1258
+Pump Schedule 0 300 
+Pump Schedule 1 660 
+Pump Schedule 3 1380 
+Lamp Schedule 1 660 240
+Pump Schedule 2 1020 
+Duty Schedule 0 0 90
+Lamp Schedule 2 900 240
+Lamp Schedule 0 420 240
+Temp 11.6
+Water 338
+Full=0 Empty=0
+PWM 90
+PumpWorkTime 60
+nLamp 3
+nPump 4
+nDuty 1
+h 20 m 58 s 58 mm 1258
+Lamp Schedule 0 420 240
+Lamp Schedule 1 660 240
+Pump Schedule 0 300 
+Lamp Schedule 2 900 240
+Pump Schedule 2 1020 
+Pump Schedule 3 1380 
+Pump Schedule 1 660 
+Duty Schedule 0 0 90
+Temp 11.6
+Water 338
+
+
+
+
+
+
+Full=0 Empty=0

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+
+    <!-- End Coder Includes -->
+    
+    <!-- this should go after your </body> -->
+
+    <!-- End apps includes -->
+
+<!--- CSS はここにかく -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="/static/datetimepicker/jquery.datetimepicker.css"/>
+<style type="text/css">
+.custom-date-style {
+    background-color: red !important;
+}
+</style>
+    
+    
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    
+    
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+
+   <!--script src="/static/datetimepicker/jquery.js"></script -->
+   <!---- ここにないと動作しない --->
+   <script src="/static/datetimepicker/jquery.datetimepicker.js"></script>   
+   <script src="/static/DataTables/media/js/jquery.dataTables.js"></script>
+   
+    <script>
+        Coder.addBasicNav();
+    </script>
+</head>
+<body class="">
+    <div class="pagecontent">
+
+<center>
+
+<h1>Long Period Schedule</h1>
+<hr>
+<p id='curtmp'></p>
+<div id='settings'>
+<table name="scheduleTable" id="tableID" class="display" border=0 width=220>
+<thead>
+  <tr><th >LABEL</th><th>設定時間</th><th>設定温度</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+</center>
+<center>
+PID:  Kp<input style="width: 80px;" type="text" id="kp" value="0.1" onchange="changePID('kp',this.value)" ></>
+Ki<input style="width: 80px;" type="text" id="ki" value="0.01" onchange="changePID('ki',this.value)" ></>
+Kd<input style="width: 80px;" type="text" id="kd" value="0.01" onchange="changePID('kd',this.value)" ></>
+<hr>
+<p id='list'></p>
+<hr>
+<button id='addBtn' onclick="addElements()">追加</button>
+<button id='setBtn' onclick="saveElements()">設定</button>
+<button id='readBtn' onclick="loadTempSchedule()">現設定読込</button> 
+<!--button id='resetBtn' onclick="getTempTemplate()">リセット</button!--> 
+<!--button id='setBtn' onclick="interpolateElements()">補間</button!-->
+<input type="text" id='saveFileName' onclick="getTempScheduleName()" value='saveLongPeriodSchedule.txt'></input>
+<button id='readNBtn' onclick="loadTempSchedule2()">設定の読込</button> 
+<button id='saveNBtn' onclick="saveElements2()">設定の保存</button>
+<button id='rmNBtn' onclick="fileRemove()">設定の削除</button>
+</center>
+
+<script>addElements()</script>
+<hr>
+<br>
+24時間を超えた温度調整が設定できます。<br>
+/home/coder/coder-dist/coder-base/LongPeriodSchedule/saveLongPeriodSchedule.txtの内容を書き換えます。<br>
+ファイルの内容は以下の通り。<br>
+targetTemp 温度 period 時間<br>
+targetTemp 温度 period 時間<br>
+targetTemp 温度 period 時間<br>
+setPID Kp 比例値 Ki 積分値 Kd 微分値<br>
+<!--
+保存時に、時刻は小さい方から並び替えられます。<br>
+リセットすると、設定値のテンプレートが読み込まれます。<br>
+補間すると、設定が６倍に補間されます。<br>
+設定しないと反映されません。<br>
+-->
+<br>
+設定できる最大時間は、35791394時間（4085年）です。
+この設定は、tempScheduleの設定よりも優先されます。tempScheduleの設定を優先する場合には、saveLongPeriodSchedule.txtを削除して下さい。
+
+<hr>
+    </div>
+    
+</body>
+
+</html>

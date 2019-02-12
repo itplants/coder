@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script src="/static/highcharts-dist/highcharts.js"></script>
+    <script src="/static/highcharts-dist/modules/exporting.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.2/themes/default/style.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.2/jstree.min.js"></script-->
+
+<link rel="stylesheet" href="/static/vakata-jstree-39d167d/dist/themes/default/style.min.css">
+<script src="/static/vakata-jstree-39d167d/dist/jstree.min.js"></script>
+
+</head>
+<body class="">
+<div class="pagecontent">
+<div class="box1">
+<br><br><br>
+<h1>Folder</h1>
+<div id="tree1"></div>
+<!--button id='lsBtn' onclick="lsData()">検索</button -->
+<!--button id='loadBtn' onclick="loadData()">読込</button-->
+<p id='list'></p>
+<p id='data'></p>
+<input type="button" value="グラフの読込" onclick="makeGraph()"><br>
+</div>
+<div class="box2">
+<p id='msg'>データ読込中です。ちょっと待って下さい</p>
+<p id='charts'></p>
+
+<!--div id="container0" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div -->
+
+<!--div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div -->
+
+<p>毎時0分にファイルが更新されます。</p>
+<input type="button" value="グラフの再読込" onclick="makeGraph()"><br>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="robots" content="ALL" />
+<title>Time Slider JS</title>
+<link rel="stylesheet" type="text/css" href="css/initialize.css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/timeSlider/timeSlider.min.js"></script>
+<script type="text/javascript"><!--
+$(function(){
+	timeSlider.init([
+		{
+			"type": 1,// 1 or 2
+			"step": 60,// Minute for deciding step length
+			"image": "png",// gif or png
+			"color": "black",// black or white
+			"url": "js/timeSlider/",// Url of timeSlider.js
+			"selector": "#timeSlider",// Selector for timeSlider showing
+			"hourForm": ["#hour"],// Input element of hour
+			"minuteForm": ["#minute"],// Input element of minute
+			"hourText": ["#hourText"],// html element of hour
+			"minuteText": ["#minuteText"],// html element of minute
+			"setHour": [6],// 0 ~ 24
+			"setMinute": [0]// 0, 10, 20, 30, 40 or 50
+		},{
+			"type": 2,
+			"step": 15,// Minute for deciding step length
+			"image": "png",// gif or png
+			"color": "white",// black or white
+			"url": "js/timeSlider/",// Url of timeSlider.js
+			"selector": "#timeSlider1",// Selector for timeSlider showing
+			"hourForm": ["#hour1","#hour2"],// Input element of hour
+			"minuteForm": ["#minute1","#minute2"],// Input element of minute
+			"hourText": ["#hourText1","#hourText2"],// html element of hour
+			"minuteText": ["#minuteText1","#minuteText2"],// html element of minute
+			"setHour": [20,3],// 0 ~ 24
+			"setMinute": [0,30]// 0, 15, 30 or 45
+		},{
+			"type": 2,
+			"step": 30,// Minute for deciding step length
+			"image": "png",// gif or png
+			"color": "black",// black or white
+			"url": "js/timeSlider/",// Url of timeSlider.js
+			"selector": "#timeSlider2",// Selector for timeSlider showing
+			"hourForm": ["#hour3","#hour4"],// Input element of hour
+			"minuteForm": ["#minute3","#minute4"],// Input element of minute
+			"hourText": ["#hourText3","#hourText4"],// html element of hour
+			"minuteText": ["#minuteText3","#minuteText4"],// html element of minute
+			"setHour": [8,17],// 0 ~ 24
+			"setMinute": [30,30]// 0 or 30
+		},{
+			"type": 3,
+			"step": 10,// Minute for deciding step length
+			"image": "png",// gif or png
+			"color": "transparent",// black or white
+			"url": "js/timeSlider/",// Url of timeSlider.js
+			"selector": "#timeSlider3",// Selector for timeSlider showing
+			"hourForm": ["#hour5"],// Input element of hour
+			"minuteForm": ["#minute5"],// Input element of minute
+			"hourText": ["#hourText5"],// html element of hour
+			"minuteText": ["#minuteText5"],// html element of minute
+			"setHour": [15],// 0 ~ 24
+			"setMinute": [50]// 0
+		}
+	]);
+});
+//-->
+</script>
+<style type="text/css">
+#all {
+	padding: 20px;
+}
+.timeSlider {
+	padding-top:10px;
+}
+.block {
+	padding: 20px;
+	border-bottom: 1px solid #999;
+}
+</style>
+</head>
+<body>
+<div id="all">
+	<div class="block">
+		singleTime：<input type="text" name="hour" id="hour" value="" style="width:3em" />：<input type="text" name="minute" id="minute" value="" style="width:3em" />　　
+		<span id="hourText"></span>：<span id="minuteText"></span>
+		<div id="timeSlider" class="timeSlider"></div>
+	</div>
+	<div class="block">
+		StartTime：<input type="text" name="hour1" id="hour1" value="" style="width:3em" />：<input type="text" name="minute1" id="minute1" value="" style="width:3em" />　　
+		EndTime：<input type="text" name="hour2" id="hour2" value="" style="width:3em" />：<input type="text" name="minute2" id="minute2" value="" style="width:3em" />　　
+		<span id="hourText1"></span>：<span id="minuteText1"></span> 〜 <span id="hourText2"></span>：<span id="minuteText2"></span>
+		<div id="timeSlider1" class="timeSlider"></div>
+	</div>
+	<div class="block">
+		StartTime：<select id="hour3"><?php for($i=0;$i<25;$i++){if(strlen($i)==1){$n="0".$i;}else{$n=$i;} ?><option value="<?=$n ?>"><?=$n ?></option><?php } ?></select>：<select id="minute3"><?php for($i=0;$i<60;$i+=30){if(strlen($i)==1){$n="0".$i;}else{$n=$i;} ?><option value="<?=$n ?>"><?=$n ?></option><?php } ?></select><!--input type="text" name="hour3" id="hour3" value="" style="width:3em" />：<input type="text" name="minute3" id="minute3" value="" style="width:3em" /-->　　
+		EndTime：<select id="hour4"><?php for($i=0;$i<25;$i++){if(strlen($i)==1){$n="0".$i;}else{$n=$i;} ?><option value="<?=$n ?>"><?=$n ?></option><?php } ?></select>：<select id="minute4"><?php for($i=0;$i<60;$i+=30){if(strlen($i)==1){$n="0".$i;}else{$n=$i;} ?><option value="<?=$n ?>"><?=$n ?></option><?php } ?></select><!--input type="text" name="hour4" id="hour4" value="" style="width:3em" />：<input type="text" name="minute4" id="minute4" value="" style="width:3em" /-->　　
+		<span id="hourText3"></span>：<span id="minuteText3"></span> 〜 <span id="hourText4"></span>：<span id="minuteText4"></span>
+		<div id="timeSlider2" class="timeSlider"></div>
+	</div>
+	<div class="block">
+		singleTime：<select id="hour5"><?php for($i=0;$i<25;$i++){if(strlen($i)==1){$n="0".$i;}else{$n=$i;} ?><option value="<?=$n ?>"><?=$n ?></option><?php } ?></select>：<select id="minute5"><?php for($i=0;$i<60;$i+=10){if(strlen($i)==1){$n="0".$i;}else{$n=$i;} ?><option value="<?=$n ?>"><?=$n ?></option><?php } ?></select><!--input type="text" name="hour5" id="hour5" value="" style="width:3em" />：<input type="text" name="minute5" id="minute5" value="" style="width:3em" /-->　　
+		<span id="hourText5"></span>：<span id="minuteText5"></span>　　
+		<div id="timeSlider3" class="timeSlider"></div>
+	</div>
+</div>
+</body>
+</html>

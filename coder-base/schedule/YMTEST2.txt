@@ -1,0 +1,5 @@
+targetTemp 24 start 06:00
+targetTemp 27 start 07:00
+targetTemp 27 start 19:00
+targetTemp 24 start 20:00
+setPID Kp 300 Ki 0.1 Kd 0.025

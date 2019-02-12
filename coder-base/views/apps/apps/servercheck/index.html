@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+        <h1>check dataCapture Server</h1>
+        <hr>
+        <p id='message'></p>
+        <hr>
+        <table>
+        <tr>
+<button id='addBtn' onclick="dataCaptureCtl('start')">Start</button>
+<button id='setBtn' onclick="dataCaptureCtl('stop')">Stop</button>
+<button id='setBtn' onclick="dataCaptureCtl('restart')">Restart</button>
+dataCaptureが起動していなかったらStartボタンで起動してください。
+<hr>
+<h1>check mjpg-Streamer Server</h1>
+        <hr>
+        <p id='messageMJPG'></p>
+        <hr>
+        <table>
+        <tr>
+<button id='addBtn' onclick="mjpgStreamerCtl('start')">Start</button>
+<button id='setBtn' onclick="mjpgStreamerCtl('stop')">Stop</button>
+<button id='setBtn' onclick="mjpgStreamerCtl('restart')">Restart</button>
+mjpg-Streamerが起動していなかったらStartボタンで起動してください。
+USBカメラを付けた時や取り替えた時にもRestartが必要です。
+<hr>
+
+<h1>check tty.js Server</h1>
+        <hr>
+        <p id='messageTTYJS'></p>
+        <hr>
+        <table>
+        <tr>
+<button id='addBtn' onclick="ttyjsCtl('start')">Start</button>
+<button id='setBtn' onclick="ttyjsCtl('stop')">Stop</button>
+<button id='setBtn' onclick="ttyjsCtl('restart')">Restart</button>
+tty.jsが起動していなかったらStartボタンで起動してください。
+Shellが応答しない場合には、起動しなおしてください。
+<hr>
+        <h1>check USB devices</h1>
+        <hr>
+        <p id='USBlist'></p>
+<hr>
+<button id='setBtn' onclick="reboot()">Reboot</button>
+USBデバイスが表示されていなければ、iTelepass2を再起動してください。
+<hr>
+
+        <td>測定データ</td>
+        <td><a href="http://itelepass02.local/data/itplanterCapturedData.csv">/home/coder/coder-dist/coder-base/data/itplanterCapturedData.csv</a></td>
+        </tr>
+        <tr>
+        <td>設定ファイル</td>
+        <td><a href="http://itelepass02.local/config/saveCamSchedule.txt">/home/coder/coder-dist/coder-base/config/saveCamSchedule.txt</a></td>
+        </tr>
+        <tr>
+        <td>撮影画像</td>
+        <td><a href="http://itelepass02.local/photo">/home/coder/coder-dist/coder-base/photo/</a></td>
+        </tr>
+        </table>
+        <hr>
+        <p><a href="https://itelepass02.local:8091/app/cameraschedule">カメラ撮影計画の変更</a></p>
+        <p><a href="https://itelepass02.local:8091/app/streamcamera">カメラ撮影</a></p>
+        <p><a href="https://itelepass02.local:8091/app/galleryview">撮影画像のアルバム表示</a></p>
+        <hr>
+        <div>
+        dataCaptureは、定期的にiTelepass02のセンサー情報を収集したり、指定日時にカメラの撮影を行うデーモンプロセスです。
+        設定ファイルが変更されると、自動的に変更を反映します。
+        </div>
+</div>
+</body>
+</html>

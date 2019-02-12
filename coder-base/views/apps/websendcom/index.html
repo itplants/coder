@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    
+    
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+        <h1>webSendCom</h1>
+<hr>　
+<div>アイティプランターのコントロールができます。</div>
+<div>iTelepass2とitplanter-02を接続しておいてください。</div>
+<hr>
+<div>アイティプランターが1台だけ接続されている場合には、</div>
+<div>コマンドを入れます。</div>
+<div>例）　A</div>
+
+<div>複数台のアイティプランターが接続されている場合には、</div>
+<div>コマンドの前に1から始まるアイティプランター番号を入れます。</div>
+<div>2台めのアイティプランターの温度表示例）　2 A</div>
+
+<div>全てのアイティプランターに一斉にコマンドを送る場合には、</div>
+<div>コマンドの前に*を入れます。</div>
+<div>一斉にポンプが動作する例）　* P</div>
+
+
+
+<hr>
+<script type="text/javascript" language="javascript">
+document.open();
+doc ='<iframe width=700  height=400 scrolling="yes" src="https://'+location.hostname+':8091/app/sendcomcommands"  name="sendcom_help" ></iframe>';
+document.write(doc);
+document.close();
+</script>
+
+
+<hr>
+センサー<br>
+<button id="A" onclick="command('A')">温度</button> 
+<button id="B" onclick="command('B')">水量</button>
+<button id="C" onclick="command('C')">水位</button>
+<button id="D" onclick="command('D')">台数</button>
+<button id="F" onclick="command('F')">照度</button>
+<br>
+<hr>
+リセット<br>
+<button id="s" onclick="command('s')">工場出荷値</button>
+<hr>
+モード<br>
+<button id="o" onclick="command('o')">PCモード</button>
+<button id="p" onclick="command('p')">Autoモード</button>
+<br>
+<hr>
+動作<br>
+<button id="L1" onclick="command('L1')">ライトON</button>
+<button id="L0" onclick="command('L0')">ライトOFF</button>
+<br>
+<button id="L1" onclick="command('P1')">ポンプON</button>
+<button id="L0" onclick="command('P0')">ポンプOFF</button>
+<br>
+<hr>
+これより下は、送信ボタンを押すと設定値が表示されます。引数を付けて送信ボタンを押すと設定されます。<br>
+もっと簡単に設定するには、
+<script type="text/javascript" language="javascript">
+document.open();
+doc='<a href="https://'+location.hostname+':8091/app/cultivationprg">cultivationPrg</a>';
+document.write(doc);
+document.close();
+</script>
+をご利用ください。
+<hr>
+時計<br>
+<button id="G" onclick="command('G')">時刻</button>
+<br>
+<hr>
+設定<br>
+<button id="f" onclick="dispTxt('f')">ライト動作設定数</button>
+<button id="W" onclick="dispTxt('W')">ライト動作時刻</button>
+<button id="H" onclick="dispTxt('H')">ライトの明るさ</button>
+<br>
+<button id="g" onclick="dispTxt('g')">ポンプ動作設定数</button>
+<button id="X" onclick="dispTxt('X')">ポンプ動作時刻</button>
+<button id="U" onclick="dispTxt('U')">ポンプの動作時間</button>
+<br>
+<button id="n" onclick="dispTxt('n')">デュティ設定数</button>
+<button id="Y" onclick="dispTxt('Y')">デュティ変更時刻</button>
+<br>
+
+<hr>
+入力
+<button id="1" onclick="dispTxtAppend('1')">1</button>
+<button id="2" onclick="dispTxtAppend('2')">2</button>
+<button id="3" onclick="dispTxtAppend('3')">3</button>
+<button id="4" onclick="dispTxtAppend('4')">4</button>
+<button id="5" onclick="dispTxtAppend('5')">5</button>
+<button id="6" onclick="dispTxtAppend('6')">6</button>
+<button id="7" onclick="dispTxtAppend('7')">7</button>
+<button id="8" onclick="dispTxtAppend('8')">8</button>
+<button id="9" onclick="dispTxtAppend('9')">9</button>
+<button id="0" onclick="dispTxtAppend('0')">0</button>
+<button id="," onclick="dispTxtAppend(',')">,</button>
+<button id="bs" onclick="dispTxtAppend('Back')">Back</button>
+<br>
+<hr>
+<form name="js">
+コマンド：<input type="text" name="txtb" value="" id="defaultKeypad" onkeypress="rtInput(event.keyCode);">
+<input type="button" value="送信" onclick="tbox1()"><br>
+</form>
+<script>
+//テキストボックスの文字を取得する
+function tbox1(){
+  var str1=document.js.txtb.value;
+    command(str1);
+}
+
+function rtInput(code)
+{
+    //エンターキー押下なら
+	if(13 === code)
+	{
+	//	tbox1();
+	}
+}
+</script>
+<p id='message'></p>
+<p id='result'></p>
+
+</body>
+</html>

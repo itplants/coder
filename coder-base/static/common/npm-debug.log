@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'socket.io' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 warn package.json consolidate@0.8.0 No repository field.
+5 warn package.json express-params@0.0.3 No repository field.
+6 warn package.json mustache@0.7.2 No repository field.
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'socket.io@0.9.13', null ]
+9 verbose cache add name=undefined spec="socket.io@0.9.13" args=["socket.io@0.9.13",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'socket.io@0.9.13',
+10 verbose parsed url   path: 'socket.io@0.9.13',
+10 verbose parsed url   href: 'socket.io@0.9.13' }
+11 verbose cache add name="socket.io" spec="0.9.13" args=["socket.io","0.9.13"]
+12 verbose parsed url { protocol: null,
+12 verbose parsed url   slashes: null,
+12 verbose parsed url   auth: null,
+12 verbose parsed url   host: null,
+12 verbose parsed url   port: null,
+12 verbose parsed url   hostname: null,
+12 verbose parsed url   hash: null,
+12 verbose parsed url   search: null,
+12 verbose parsed url   query: null,
+12 verbose parsed url   pathname: '0.9.13',
+12 verbose parsed url   path: '0.9.13',
+12 verbose parsed url   href: '0.9.13' }
+13 verbose addNamed [ 'socket.io', '0.9.13' ]
+14 verbose addNamed [ '0.9.13', '0.9.13' ]
+15 silly lockFile 8f36e462-socket-io-0-9-13 socket.io@0.9.13
+16 verbose lock socket.io@0.9.13 /home/coder/.npm/8f36e462-socket-io-0-9-13.lock
+17 verbose request where is /socket.io
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 7a96f0c769a18681
+20 verbose url raw /socket.io
+21 verbose url resolving [ 'https://registry.npmjs.org/', './socket.io' ]
+22 verbose url resolved https://registry.npmjs.org/socket.io
+23 verbose request where is https://registry.npmjs.org/socket.io
+24 info trying registry request attempt 1 at 09:43:57
+25 verbose etag "AQDQYKF0SSOE9QP3G9SDERKO3"
+26 http GET https://registry.npmjs.org/socket.io
+27 http 200 https://registry.npmjs.org/socket.io
+28 silly registry.get cb [ 200,
+28 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     etag: '"44UTBPEAADQIGFFLZSSDLAWDH"',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=60',
+28 silly registry.get     'content-length': '113247',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     date: 'Thu, 16 Jul 2015 00:43:58 GMT',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     connection: 'keep-alive',
+28 silly registry.get     'x-served-by': 'cache-nrt6129-NRT',
+28 silly registry.get     'x-cache': 'HIT',
+28 silly registry.get     'x-cache-hits': '1',
+28 silly registry.get     'x-timer': 'S1437007438.078929,VS0,VE184',
+28 silly registry.get     vary: 'Accept' } ]
+29 silly lockFile cf35fed2-g-socket-io-socket-io-0-9-13-tgz https://registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz
+30 verbose lock https://registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz /home/coder/.npm/cf35fed2-g-socket-io-socket-io-0-9-13-tgz.lock
+31 verbose addRemoteTarball [ 'https://registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz',
+31 verbose addRemoteTarball   '3e2a5e71ee47978cb18be4bb90217ad7a5d4f2fb' ]
+32 info retry fetch attempt 1 at 09:43:58
+33 verbose fetch to= /tmp/npm-2083-89GXz5qj/registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz
+34 http GET https://registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz
+35 http 200 https://registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz
+36 silly lockFile cf35fed2-g-socket-io-socket-io-0-9-13-tgz https://registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz
+37 silly lockFile cf35fed2-g-socket-io-socket-io-0-9-13-tgz https://registry.npmjs.org/socket.io/-/socket.io-0.9.13.tgz
+38 silly lockFile 8f36e462-socket-io-0-9-13 socket.io@0.9.13
+39 silly lockFile 8f36e462-socket-io-0-9-13 socket.io@0.9.13
+40 error Error: EACCES, open '/home/coder/.npm/socket.io/0.9.13/package.tgz'
+40 error  { [Error: EACCES, open '/home/coder/.npm/socket.io/0.9.13/package.tgz']
+40 error   errno: 3,
+40 error   code: 'EACCES',
+40 error   path: '/home/coder/.npm/socket.io/0.9.13/package.tgz',
+40 error   parent: 'coder-base' }
+41 error Please try running this command again as root/Administrator.
+42 error System Linux 3.10.17-poky-edison+
+43 error command "/usr/bin/node" "/usr/bin/npm" "install" "socket.io"
+44 error cwd /home/coder/coder-dist/coder-base/static/common
+45 error node -v v0.10.32
+46 error npm -v 1.4.28
+47 error path /home/coder/.npm/socket.io/0.9.13/package.tgz
+48 error code EACCES
+49 error errno 3
+50 error stack Error: EACCES, open '/home/coder/.npm/socket.io/0.9.13/package.tgz'
+51 verbose exit [ 3, true ]

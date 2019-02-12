@@ -1,0 +1,21 @@
+2018/09/22 11:36:17
+hum 67.12
+currentTemp 28.80
+press 955.04
+targetTemp 26.00
+currentLux 1210.00
+pwm 663
+dir 0
+AH 17.29
+Tpeltier 21.50
+Tcondensation 22.08
+Pws 39.60
+Pw 26.58
+Dair 1.10
+Mratio 0.17
+CondensCondition true
+FreezeCondition false
+correction 0.00
+dAH -0.00
+dTemp 0.00
+EOF

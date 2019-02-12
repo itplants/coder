@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    
+    <!-- End Coder Includes -->
+    <!--- CSS はここにかく -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/static/datetimepicker/jquery.datetimepicker.css"/>
+    <style type="text/css">
+    .custom-date-style {
+        background-color: red !important;
+    }
+    </style>
+      <script src="/static/datetimepicker/jquery.js"></script>
+   <!---- ここにないと動作しない --->
+   <script src="/static/datetimepicker/jquery.datetimepicker.js"></script>   
+   <script src="/static/DataTables/media/js/jquery.dataTables.js"></script>
+   
+    <script src="/static/list.js/dist/list.min.js"></script>   
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script -->
+
+    <script>
+        Coder.addBasicNav();
+    </script>
+
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<div id='header'>
+<body class="">
+<div class="box1">
+<h1>栽培プログラム</h1>
+<hr>
+</div>
+
+<div class="box2">
+<!-- div id='main' -->
+<p id='list' width='600'></p>
+<hr>
+Light Scheduleは、START=00:00、STOP=00:00で、24時間点灯です。<br>
+Dutyは、ライトの照度です。100%で最大照度になり、0%で消灯状態になります。<br>
+アイティプランターからの読み出しに少し時間がかかります。<br>
+再読込ボタンを押すと、アイティプランターから設定値を読みだして表示します。
+<p id="message"></p>
+<p id="messageConsole"></p>
+<p id='clickedLamp'></p>
+<p id='clickedDuty'></p>
+<p id='clickedPump'></p>
+<p id="Error"></p>
+<p id="result"><p>
+</div>
+
+<!-- div id='side' -->
+<div class="box3">
+<p id='hide' style="display:none"></p>
+<p><textarea cols="20" rows="1" id='name' style="overflow:auto;" value=""></textarea></p>
+<p><textarea cols="22" rows="4" id='comment' style="overflow:auto;" value=""></textarea></p>
+
+<input type='text' id='input' value=''></>
+<button id='confarmbtn' onclick="cultivationProgramLoad();">読込</button>
+読込まではアイティプランターの現在値を表示
+
+<hr>
+<h1>保存</h1>
+<input type='text' id='save' value='保存ファイル名を入力'></>
+<button onclick="cultivationProgramSave()">保存</button>
+<button onclick="cultivationProgramRemove()">削除</button>
+編集した栽培プログラムを保存
+<hr>
+<!--h1>選択</h1>
+<p id='Planter'>itplanter  </p>
+<button onclick="selectAllPlanter()">全選択</button>
+<button onclick="selectFirstPlanter()">全選択解除</button> 
+栽培プログラムを送るアイティプランターを選択
+<hr!-->
+<h1>設定</h1>
+<button onclick="setElementsAll()">設定</button>
+<button onclick="cultivationProgramLoad()">再読込</button> 
+栽培プログラムをアイティプランターに送信
+<hr>
+
+<script type="text/javascript" language="javascript">
+document.open();
+doc  = '<a href="https://'+window.location.hostname+':8091/app/cameraschedule">カメラ撮影設定</a>&nbsp;&nbsp;&nbsp;';
+doc += '<a href="https://'+window.location.hostname+':8091/app/clock">時計設定</a>&nbsp;&nbsp;&nbsp;';
+doc += '<a href="https://'+window.location.hostname+':8091/app/websendcom">sendcom</a>&nbsp;&nbsp;&nbsp;';
+doc += '<a href="https://'+window.location.hostname+':8091/app/longperiodcontrol">長周期設定</a>&nbsp;&nbsp;&nbsp;';
+doc += '<a href="https://'+window.location.hostname+':8091/app/tempschedule">温度設定</a><hr></div>';
+document.write(doc);
+document.close();
+</script>
+<br><br><br>
+</div>
+
+<div class="box4" id='settings'>
+<dl id="acMenu">
+<dtLight><h1>Light Schedule</h1></dtLight>
+<dd>
+<table name="scheduleTable" id="tableIDLamp" class="display" border="0" width="100">
+<thead>
+  <tr><th >DEL</th><th>START</th><th>STOP</th></tr>
+</thead>
+<tbody class="list"></tbody>
+</table>
+<hr>
+<button onclick="addElementsLamp()">追加</button>
+<button onclick="setElementsAll()">設定</button>
+<!-- button onclick="load_itplanterSettingsLamp()">再読込</button --> 
+<button onclick="ITPsetting(['-rl'],setdata)">再読込</button> 
+</dd>
+</dl>
+</div>
+
+<div class="box4" id='settingsDuty'>
+<dl id="acMenu">
+
+<dtDuty><h1>Duty Schedule</h1></dtDuty>
+
+<dd>
+<table name="scheduleTableDuty" id="tableIDDuty" class="display" border=0 width="220">
+<thead>
+<tr><th>DEL</th><th>START</th><th>DUTY</th></tr>
+</thead>
+<tbody class="list"></tbody>
+</table>
+
+<hr>
+<button onclick="addElementsDuty()">追加</button>
+<button onclick="setElementsAll()">設定</button>
+<!--button onclick="load_itplanterSettingsDuty()">再読込</button--> 
+<button onclick="ITPsetting(['-rd'],setdata)">再読込</button> 
+</dd>
+</dl>
+</div>
+
+<div class="box4" id='settingsPump'>
+<dl id="acMenu">
+<dtPump><h1>Pump Schedule</h1></dtPump>
+
+<dd>
+<table name="scheduleTablePump" id="tableIDPump" class="display" border="0" width="220">
+<thead>
+<tr><th>DEL</th><th>START</th></tr>
+</thead>
+<tbody class="list"></tbody>
+</table>
+
+<hr>
+<table name="scheduleTablePump" id="tableIDPump" class="display" border="0" width="220">
+<thead>
+<h2>PumpWorkTime</h2>
+<p><input type="text" id="PumpWorkTime" onkeydown="goPumpWorkingTime()" value="0"/></p>
+<hr>
+<button onclick="addElementsPump()">追加</button>
+<button onclick="setElementsAll()">設定</button>
+<!--button onclick="load_itplanterSettingsPump()">再読込</button--> 
+<button onclick="ITPsetting(['-rp'],setdata)">再読込</button> 
+</dd>
+</dl>
+</div>
+
+ 
+</body>
+</html>

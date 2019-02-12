@@ -1,0 +1,9 @@
+
+.pagecontent {
+    padding: 24px;
+}
+
+.highcharts-yaxis-grid .highcharts-grid-line {
+    display: none;
+}
+

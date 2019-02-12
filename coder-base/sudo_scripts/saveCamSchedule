@@ -1,0 +1,4 @@
+#!/bin/sh
+/usr/bin/sudo  /bin/echo $1 > /home/coder/coder-dist/coder-base/config/saveCamSchedule.txt
+/usr/bin/sudo  /bin/echo "OK"
+

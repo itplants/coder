@@ -1,0 +1,34 @@
+#!/bin/sh
+
+stat=`/bin/ps|/usr/bin/sort|/bin/grep java|/usr/bin/awk '{if( NR==1 ) print $0}'`
+pid=`/bin/ps|/usr/bin/sort|/bin/grep  java|/usr/bin/awk '{if( NR==1 ) print $1}'`
+#stat=`/bin/ps|/usr/bin/sort|/bin/grep CloudGarden.jar|/usr/bin/awk '{if( NR==1 ) print $0}'`
+#pid=`/bin/ps|/usr/bin/sort|/bin/grep  CloudGarden.jar|/usr/bin/awk '{if( NR==1 ) print $1}'`
+#echo "STAT:" $stat "PID:" $pid
+
+if  test $1 = "start"
+then
+/usr/bin/sudo /bin/systemctl start cloudgarden.service 
+echo "START"
+elif test  $1 = "stop"
+then
+#/usr/bin/sudo /bin/systemctl stop cloudgarden.service 
+/bin/kill $pid
+echo "STOP"
+elif test  $1 = "ps"
+then
+
+pstat=`echo $stat|awk '{print $5}'`
+#echo "STAT=" $stat 
+#echo "PSTAT=" $pstat 
+
+if [ $pstat = "/bin/grep" ]
+then
+echo "NOT WORKED " 
+else
+echo "WORK!!  "$stat
+fi
+
+fi
+
+exit 0

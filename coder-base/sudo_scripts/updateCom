@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cd /mnt/updaters
+
+/usr/bin/sudo /bin/tar zxf  $1
+
+cd Updater
+
+state=`/usr/bin/sudo ./update.sh < updatelist.txt`                                                            
+
+# check state
+# if no error return OK
+if [ $state ]
+then
+/bin/echo "|"${state}"|"
+else
+/bin/echo $1 > /mnt/updaters/UPDATEDATE
+fi
+

@@ -1,0 +1,12 @@
+#!/bin/sh                                                                       
+#/usr/bin/sudo /bin/systemctl stop wpa_supplicant 
+#/usr/bin/sudo /bin/systemctl disable wpa_supplicant 
+#/usr/bin/sudo /bin/systemctl enable hostapd                                                                        
+#/usr/bin/sudo /bin/systemctl start hostapd                                                                        
+
+/usr/bin/sudo /bin/systemctl stop    hostapd                                                                        
+/usr/bin/sudo /bin/systemctl disable hostapd                                                                        
+/usr/bin/sudo /bin/systemctl enable  wpa_supplicant
+/usr/bin/sudo /bin/systemctl start   wpa_supplicant
+
+#/usr/bin/sudo /sbin/reboot                                                                        

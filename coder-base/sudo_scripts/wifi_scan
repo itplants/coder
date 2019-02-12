@@ -1,0 +1,4 @@
+#!/bin/sh
+/bin/systemctl stop hostapd && sleep 2 && /bin/systemctl start wpa_supplicant
+/usr/bin/sudo  /usr/sbin/wpa_cli scan_results > ./wifi_scanresult
+/bin/systemctl stop wpa_supplicant && sleep 2 && /bin/systemctl start hostapd

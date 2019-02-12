@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+        <h1>アップデート</h1>
+<hr>
+        <p><a href="http://itelepass02.itplants.com">
+        iTelepass02のサイト</a>にアクセスしてアップデート情報を確認します。</p>
+        <p>最新のアップデータは、AM4:00にダウンロードされているはずです。</p>
+
+<lu>
+            <li><a href="http://download.itplants.com/dl/updaters/index.html" onClick="window.open('http://download.itplants.com/dl/updaters/index.html','Updaters','width=300,height=300') ; return false ;">updaterの有無を確認する。</a></li>
+            <li>現在までに適用されたアップデータを下に表示しています。</li>
+            <li>アップデータがまだの最新アップデータは選択されています。</li>
+            <li>何も選択されていない場合にはアップデートは不要です。</li>
+            <li>アップデータはiTelepass02の共有ホルダーの/mnt/updatersホルダーにあります。</li>
+</lu>
+<br>
+<p id='list'></p>
+<div>
+アップデート開始ボタンを押すと、アップデートが始まります。
+</div>
+<hr>
+    <button id='update'  onclick="loadUpdater()">アップデータ読込</button>
+    <button id='update'  onclick="update()">アップデート開始</button>
+<hr>
+<p id='msg'></p>
+<p id='cong'></p>
+<hr>
+手動でアップデートする方法
+<lu>
+<li>アップデータをダウンロードして、
+<script type="text/javascript" language="javascript">
+doc  = window.location.hostname;
+document.write(doc);
+</script>
+の/mnt/updatersにコピーする</li>
+<li>shellアプリでコンソールを起動する</li>
+<li>アップデータを解凍 : $ tar zxvf itelepass2update150****.taz</li>
+<li>アップデート実行 : $ cd Updater;sudo ./update.sh updatelist.txt</li>
+<li>エラーが返らなければアップデート完了</li>
+</lu>
+
+
+</body>
+</html>

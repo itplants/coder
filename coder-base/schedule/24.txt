@@ -1,0 +1,2 @@
+targetTemp 24 start 00:00
+setPID Kp 500 Ki 0.05 Kd 0.0125

@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/sudo /usr/bin/flock /tmp/lock /usr/local/bin/sendcom "$1" $2 $3 $4

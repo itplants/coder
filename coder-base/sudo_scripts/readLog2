@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/sudo /usr/local/bin/node /home/pi/src/ITBOX/readLog.js $1

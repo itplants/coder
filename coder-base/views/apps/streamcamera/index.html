@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+<div class="pagecontent">
+
+<!--
+<iframe id='iframe' src="http://itelepass03.local:8080/?action=stream" width=640 height=480>
+</iframe>
+streamはIEでは動作しない
+<div id="webcam"><img src="http://itelepass03.local:8080/?action=stream" width="640" height="480" /></div>
+-->
+<div id="webcam">
+<p class="sample1" >
+<script>
+<!--
+document.write('<img src=http://'+location.hostname+':8080/?action=stream width=640 height=480" class="flip-vertical" />');
+-->
+</script>
+</p>
+
+</div>
+
+<hr>
+<button onclick="saveimage()">撮影</button>
+<script>
+<!--
+document.write("<button id='takeimage' onclick=location.href='https://"+document.location.hostname+":8091/app/galleryview'>ギャラリー</button>");
+-->
+</script>
+
+<input type='range' min="0" max="100" id="Hrange" step="5" value="90" onchange="commandSendcom('o');commandSendcom('H'+this.value);message('H'+this.value,null);"></>
+<label id='message'>H90</label>
+<p id='filename'></p>
+<hr>
+<p>
+<script>
+<!--
+document.write("<a href=https://"+document.location.hostname+":8091/app/cameraschedule>カメラ撮影スケジュールを設定する");
+-->
+</script>
+
+</a></p>
+<hr>
+<div>
+カメラの画像をストリーム配信しています。カメラの角度調整やピント調整にご利用ください。カメラの自動撮影は、
+<script>
+<!--
+document.write('<a href="https://'+document.location.hotname+':8091/app/cameraschedule">cameraschedule</a>');
+-->
+</script>
+で行ってください。
+<p>カメラが付いていないと何も写りません。</p>
+<p>スライダーで明るさが変わります。カメラの自動露出調整機能が優秀ならば、スライダーを動かしても何も変わりません。</p>
+<p>フリッカーノイズをなくすには、H100またはH0にしてください。</p>
+</div>
+
+</body>
+</html>

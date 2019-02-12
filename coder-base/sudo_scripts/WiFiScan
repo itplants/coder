@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo iwlist wlan0 scan|grep ESSID|awk '{gsub("ESSID:","",$0);gsub("\"","",$0);print $0}' 

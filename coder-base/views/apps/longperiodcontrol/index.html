@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    
+<!--- CSS はここにかく -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="/static/datetimepicker/jquery.datetimepicker.css"/>
+<style type="text/css">
+.custom-date-style {
+    background-color: red !important;
+}
+</style>
+
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    
+    
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    
+   <!---- ここにないと動作しない --->
+   <script src="/static/datetimepicker/jquery.datetimepicker.js"></script>   
+   <script src="/static/DataTables/media/js/jquery.dataTables.js"></script>
+  
+    <script src="/static/list.js/dist/list.min.js"></script>   
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script -->
+
+    <script>
+        Coder.addBasicNav();
+    </script>
+    
+</head>
+<html lang="ja">
+<body>
+    <title>longPeriodControl</title>
+ <p><button id='addBtn' onclick="location.reload()"><font size="2">再読込</font></button>
+<font size="2">栽培プログラムや温度プログラムを変更した場合、再読込が必要です。</font></p>
+
+    <h1>長周期プログラム設定</h1>
+    <hr>
+    <p id='curtmp'></p>
+    
+    <div id='settings'>
+    <table name="scheduleTable" id="tableID" class="display" border=0 width="700">
+    <thead>
+    
+      <tr><th><font size="2">LABEL</font></th><th><font size="2">開始日</font>
+      </th><th><font size="2">栽培プログラム</font></th><th><font size="2">温度プログラム</font></th>
+      <th><font size="2">終了日</font></th><th><font size="2">栽培プログラム</font></th>
+      <th><font size="2">温度プログラム</font></th></tr>
+    
+    </thead>
+    <tbody class="list">
+    </tbody>
+    </table>
+    </div>
+    
+    <button id='addBtn' onclick="newfile()">新規作成</button>
+    <button id='addBtn' onclick="addElements()">要素追加</button>
+    <button id='readNBtn' onclick="loadControlFile()">設定の読込</button> 
+    <button id='saveNBtn' onclick="saveControlFile()">設定の保存</button>
+    <button id='rmNBtn' onclick="fileRemove()">設定の削除</button>
+    <button id='rmNBtn' onclick="saveControlFileStart()">開始</button>
+    <br>    
+    <p id='controllist'></p>
+    <p id='hide' style="display:none"></p>
+    
+    <p><textarea cols="40" rows="1" id='listinput' style="overflow:auto;" value="saveLongPeriodControl.txt">saveLongPeriodControl.txt</textarea></p>
+    <!-- p><textarea cols="40" rows="4" id='comment0' style="overflow:auto;" value=""></textarea></p><hr-->
+
+    <table style="width:100%;"><tr><th>
+    <div id='MSET'>
+    <h1 style="width:100%;" height="60px">24時間の栽培プログラム</h1><hr>
+    <!-- p id='clistmain'></p -->
+    <p><textarea cols="20" rows="1" id='name' style="overflow:auto;" value=""></textarea></p>
+    <p><textarea cols="40" rows="10" id='comment' style="overflow:auto;" value=""></textarea></p>
+    <script type="text/javascript" language="javascript">
+        doc ='<input type="button" id="cultiNewBtn" value="新規" onclick="window.open( \'https://'+window.location.hostname+':8091/app/cultivationprg\')">';
+        console.log('doc='+doc);
+        document.write(doc);
+    </script>
+    <input type="button" value="読込" onclick="display1()">
+    </div>
+    </th>
+    <th>
+    <vr>
+    </th>
+    <th>
+    
+    <div id='DSET'>
+    <h1>24時間の温度プログラム</h1><hr>
+    <!-- p id='tlistmain'></p -->
+    <p><textarea cols="20" rows="1" id='nameTemp' style="overflow:auto;" value=""></textarea></p>
+    <p><textarea cols="40" rows="10" id='commentTemp' style="overflow:auto;" value=""></textarea></p>
+    <script type="text/javascript" language="javascript">
+        doc ='<input type="button" id="tmpNewBtn" value="新規" onclick="window.open( \'https://'+window.location.hostname+':8091/app/tempschedule\')">';
+        console.log('doc='+doc);
+        document.write(doc);
+    </script>
+    <input type="button" value="読込" onclick="display2()">
+    </th>
+    </div>
+    </tr>
+    </div>
+    </table>
+    <hr>
+    <script>
+        document.open();
+        doc = '<a href="https://'+window.location.hostname+':8091/app/cultivationprg">栽培プログラム設定</a>&nbsp;&nbsp;&nbsp';
+        doc += '<a href="https://'+window.location.hostname+':8091/app/tempschedule">温度プログラム設定</a>&nbsp;&nbsp;&nbsp';
+        document.write(doc);
+        document.close();
+</script>
+
+    <hr>
+    説明：
+    開始日(0時0分秒から開始)の栽培プログラム、温度プログラムの設定値から始まり、
+    終了日(0時0分秒で終了)の栽培プログラム、温度プログラムの設定値で止まります。
+    開始日から終了日の間は、開始日の栽培プログラム、温度プログラムの設定値と
+    終了日の栽培プログラム、温度プログラムの設定値の補間値を自動設定します。
+    これにより、温度が24度から１ヶ月の間で、徐々に20度まで変化させることができます。
+    照明時間も、開始時に1日12時間照明だったのを、終了時には、8時間照明にして、その間、徐々に照明時間を短くします。
+    <br>
+    まず最初に、24時間の栽培プログラムと温度プログラムを設定してください。
+    設定した24時間の栽培プログラムと温度プログラムは、メニューに表示されるので、選択して設定してください。
+    メニューに表示されていない場合は、このページを再読み込みしてください。
+    <br>
+    開始ボタンを押すと、設定値が反映されます。saveLongPeriodControl.txtの内容は、書き換えられますので、ご注意ください。
+    設定値には、ファイル名を付けて、設定の保存ボタンを押して下さい。
+
+</body>
+</html>

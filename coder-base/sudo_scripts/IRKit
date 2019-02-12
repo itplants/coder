@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# get Data
+# IRKit 192.168.1.23 -q
+# set Data
+# IRKit 192.168.1.23 -s data
+#IP="192.168.1.23"
+IP="irkit4d46.local"
+# -q or not -s
+SW=""
+# set data, get by -q 
+data=""
+
+echo $#
+
+if [ $# -ge 1 ] 
+then
+ IP=$1
+fi
+if [ $# -ge 2 ]  
+then
+SW=$2
+fi
+if [ $# -ge 3 ] 
+then
+data=$3
+#echo $data
+fi
+
+
+#echo SW=$SW
+if [ $SW == "-q" ]
+then
+##
+#echo `/usr/bin/sudo /usr/bin/curl -i "http://$IP/messages" |awk 'NR==6 {print $0 }'`
+data=`/usr/bin/sudo /usr/bin/curl -i "http://$IP/messages" |awk 'NR==6 {print $0 }'`
+
+# echo $data
+/bin/echo "|"${state}"|"
+else
+##
+#echo curl -i "http://$IP/messages" -d $data
+/usr/bin/sudo /usr/bin/curl -i "http://$IP/messages" -d $data
+
+##
+fi
+#
+echo $data

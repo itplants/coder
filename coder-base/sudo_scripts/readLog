@@ -1,0 +1,3 @@
+#!/bin/sh
+/usr/bin/sudo /home/pi/src/ITBOX/readLog.py $1 
+#/usr/bin/sudo /home/pi/src/ITBOX/readLog.js $1 

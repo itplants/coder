@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+    <div class="pagecontent">
+        <h1>ITBOX App 説明</h1>
+<hr>
+    <div>
+    /home/pi/src/ITBOXにソフトウエアが入っています。
+<hr>
+<p>tempController.js</p>
+    ペルチェによる温度制御を行うアプリです。start.shで実行できます。デフォルトでは、systemdで自動起動されます。停止したい時は、sudo systemctl stop tempControllerとしてください。停止するまでに少し時間がかかります。
+    このアプリは多機能です。内部で、カメラの自動撮影や以下のセンサー情報を取得しています。tempScheduleの設定ファイル/home/coder/coder-dist/coder-base/config/saveTempSchedule.txtの内容を参照します。saveTempSchedule.txtが書き換わったら、デーモンが設定値を反映し直します。
+    saveTempSchedule.txtの内容を編集しても、編集結果が反映されます。
+    <script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/servercheck">https://'+location.hostname+':8091/app/servercheck</a>');
+    -->
+    </script>
+    からコントロールできます。
+<hr>
+    <p>setTemp.sh</p>
+    tempControllerに、設定温度を知らせます。具体的には、home/coder/coder-dist/coder-base/config/saveTempController.txtに、targetTemp 20.0のようにファイルに書くと反映されます。
+    <script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/tempcontroller">https://'+location.hostname+':8091/app/tempcontroller</a>');
+    -->
+    </script>
+    から温度設定できます。
+<hr>    
+    <p>longPeriodSchedule.js</p>
+    24時間を超えた温度周期を設定できます。デフォルトでは、systemdで自動起動されます。停止したい時は、sudo systemctl stop longPeriodScheduleとしてください。停止するまでに少し時間がかかります。
+    longPeriodScheduleは、/home/coder/coder-dist/coder-base/LongPeriodScheduleのホルダー内のsaveLongPeriodSchedule.txtの内容を参照します。
+    saveLongPeriodSchedule.txtが書き換わった時に、デーモンが、tempScheduleの設定ファイル（/home/coder/coder-dist/coder-base/config.txtの内容を参照します。
+    saveTempSchedule.txt）を書き換えます。    saveLongPeriodSchedule.txtの内容を編集しても、編集結果が反映されます。
+    
+    <script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/longperiodschedule">https://'+location.hostname+':8091/app/longperiodschedule</a>');
+    -->
+    </script>
+    から温度設定できます。
+<hr>
+    <p>BME280.py</p>
+    温度、湿度、気圧を測定するセンサーです。ボックス内の温度を測定しています。また、気圧から絶対湿度や露点を計算します。
+    BME280.pyが動作するには、sudo pigpiod を実行してください。センサーの位置により、温度や湿度の値が変化します。測定したい場所にセンサーを設置してください。
+<script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/bme280">https://'+location.hostname+':8091/app/bme280</a>');
+    -->
+</script>
+    からセンサー情報を見ることができます。
+<hr>
+<p>DS18B20.py</p>
+ペルチェ表面付近の温度を測定する1-Wire型の温度センサーです。1-Wireは応答に時間がかかります。ペルチェ素子の内部ファンのヒートシンクに付いています。
+<script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/ds18b20">https://'+location.hostname+':8091/app/ds18b20</a>');
+    -->
+</script>
+からセンサー情報を見ることができます。
+<hr>
+<p>TSL2561.py</p>
+    照度を測定します。センサーの設置位置により、照度が変化します。測定したい場所にセンサーを設置してください。互換のBH1750が搭載されていることがあります。この場合には、/home/pi/src/ITBOX/TSL2561.pyはシンボリックリンクになっています。
+<script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/tsl2561">https://'+location.hostname+':8091/app/tsl2561</a>');
+    -->
+</script>
+からセンサー情報を見ることができます。
+<hr>
+
+<p>readLog.py </p>
+    1時間毎に更新される温度モニターファイルから、センサー値を読み出します。温度モニターファイルは、/mnt/data内に保存されます。
+    センサー値をグラフ表示する時に呼び出されます。
+    <hr>
+<p>yestaDayLog.js </p>
+    前日の1時間毎に書き出された温度モニターファイルを1日分のcsvファイルに書き出し、1時間毎のファイルを削除します。
+    cronで動作しています。1時間毎に書き出された温度モニターファイルも残したい場合には、crontab -e でyestaDayLog.js の行をコメントアウトしてください。
+
+<hr>
+<p>setPID.js </p>
+    温度設定ファイル（/home/coder/coder-dist/coder-base/config/saveTempController.txt）内のPID値を変更します。coderアプリのsetPIDで呼び出されます。
+<script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/setpid">https://'+location.hostname+':8091/app/setpid</a>');
+    -->
+</script>
+
+<hr>
+<p>interpolateTempSch.js</p>
+    温度設定で、20度から30度に温度変更する場合、温度が急激に変化します。補間により、温度変化を滑らかにできます。温度設定値を線形補間して、5倍の密度で温度を変化させる設定情報を生成します。
+    coderのtempscheduleアプリの補間ボタンを押すと呼び出されます。
+<script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/tempschedule">https://'+location.hostname+':8091/app/tempschedule</a>');
+    -->
+</script>
+
+<hr>
+    <p>TSL2561.py</p>
+    照度を測定します。互換のBH1750が搭載されていることがあります。この場合には、/home/pi/src/ITBOX/TSL2561.pyはシンボリックリンクになっています。
+<script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/tsl2561">https://'+location.hostname+':8091/app/tsl2561</a>');
+    -->
+</script>
+からセンサー情報を見ることができます。
+<hr>
+    <p>peltierCtl.py </p>
+    ペルチェ制御を行います。peltierCtl.py  PWM-Power Dir です。PWM-Powerは、０から1000までの整数で、Dirは０なら冷却、１なら暖房になります。
+    tempControllerが内部で利用しています。設定したままで忘れたりすると高温になったり、凍結したりして危険なのでブラウザからは使えません。
+<hr>
+<hr>
+<p>Coder アプリ</p>
+    基本的には、<a href='http://itelepass.itplants.com'>itelepass</a>と同じです。itelepass02がIntel Edisonを使っていたのに対して、ITBOXではRaspberryPi3、または、Raspberry Pi Zeroを使っています。
+    アイティプランター１台に対するコントロールだけを行います。
+    
+<hr><p>TempController</p>
+<div><img src="/static/apps/itbox_/media/tempController.jpg" width="480"></div>
+    <br><script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/tempcontroller">https://'+location.hostname+':8091/app/tempcontroller</a>');
+    -->
+    </script>
+    <br>
+センサー情報が表示されます。5分毎に、更新されます。DS18B20 1-Wireは、表示されるまでに時間がかかります。
+<hr><p>tempSchedule</p>
+<img src="/static/apps/itbox_/media/tempSchedule.jpg" width="480">
+    <script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/tempschedule">https://'+location.hostname+':8091/app/tempschedule</a>');
+    -->
+    </script>
+    <br>
+24時間周期で、ITBOXの温度設定を行います。現在の温度から急激に冷やすとペルチェが凍結することがあります。
+ペルチェが凍結すると冷却ファンが回らなくなり、故障の原因になります。
+
+<hr><p>longPeriodSchedule</p>
+<img src="/static/apps/itbox_/media/longPeriod.jpg" width="480"></img>
+ <br><script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/longperiodschedule">https://'+location.hostname+':8091/app/longperiodschedule</a>');
+    -->
+    </script>
+<br>
+24時間を超えて、ITBOXの温度設定を行います。tempScheduleの設定値は、longPeriodScheduleによって書き換えられます。longPeriodScheduleを使わない場合には、空の設定を保存するか、saveLongPeriodSchedule.txtを削除します。
+<hr><p>BOXstatus</p>
+<img src="/static/apps/itbox_/media/boxstatus.jpg" width="480"></img>
+ <br>
+    <script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/boxstatus">https://'+location.hostname+':8091/app/boxstatus</a>');
+    -->
+    </script>
+    <br>
+    ITBOXの現在の状態を表示します。    
+    </div>
+    
+<hr><p>ServerCheck</p>
+デーモンの動作を表示します。ITBOXの動作チェックに使います。
+<img src="/static/apps/itbox_/media/servercheck.jpg" width="480">
+<br><script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/pidsetting">https://'+location.hostname+':8091/app/pidsetting</a>');
+    -->
+    </script>
+
+<hr>
+    <p>PID設定方法</p>
+    tempControllerの動作中でも、PIDパラメータを変更できます。<br>
+    <img src="/static/apps/itbox_/media/pidsetting.jpg" width="480">
+    <br><script>
+    <!---
+    document.write('<a href="https://'+location.hostname+':8091/app/pidsetting">https://'+location.hostname+':8091/app/pidsetting</a>');
+    -->
+    </script>
+    
+    <hr>
+
+    saveTempController.txtに、<br>
+    setPID Kp 0.1 Ki 0.01 Kd K_d 0.01<br>
+    のように、PIDのパラメータを書き込みます。tempScheduleを実行するとsetPIDは消えます。<nr>
+    PIDの最適値が決まったら、/home/pi/src/ITBOX/start.sh を書き換えて、<br>
+    sudo /home/pi/src/ITBOX/tempController.js $1  -kp P値 -Ki I値 -Kd D値<br>
+    とすれば反映されます。<br>
+    sudo systemctl restart tempController <br>
+    で温度コントローラが再起動します。
+    
+    
+    
+    
+    </div>
+    <p><a href="http://knowhow.itplants.com">株式会社アイティプランツ</a>　　2016/12初稿、2018/4加筆</p>
+    お問合せ先<br>
+    support@itplants.com<br>
+    TEL 080-3835-0260 (担当　坂口）<br>
+    
+    
+</body>
+</html>

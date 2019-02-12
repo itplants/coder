@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+    
+    <script src="/static/highcharts/highcharts.js"></script>
+    <script src="/static/highcharts/modules/exporting.js"></script>
+    <script src="/static/pot.min.js"></script>
+    
+    <!-- script src="{{&static_url}}/HighChartGraph/webroot/js/highcharts.js"></script>
+    <!--script src="{{&static_url}}/HighChartGraph/webroot/js/exporting.js"></script -->
+    <!--script src="{{&static_url}}/potlite.min.js"></script-->
+
+</head>
+<body class="">
+    <div class="pagecontent">
+        <h1>Auto PID</h1>
+        <p>ステップ応答法で、PIDパラメータを設定します。</p>
+        <p>現在温度から１度低くして、２度高くします。その後、１度低くして終了します。</p>
+        <p>開始から終了まで、数分かかります。途中のキャンセルはできません。</p>
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <p>表示されたPIDパラメータの値を参考にして、setPIDやtempScheduleで入力してください。</p>
+        <hr>
+        <p id='PID'></p>
+        <input type="button" value="開始" onclick="doAutoPID()"></>
+        <p id='state'></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /home/pi/src/ITBOX/
+/usr/bin/sudo /usr/local/bin/node /home/pi/src/ITBOX/activeQuery.js

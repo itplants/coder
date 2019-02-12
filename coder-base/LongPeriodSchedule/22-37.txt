@@ -1,0 +1,3 @@
+targetTemp 22 period 22:00
+targetTemp 37 period 30:00
+setPID Kp 400 Ki 0.01 Kd 0.0025

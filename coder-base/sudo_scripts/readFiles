@@ -1,0 +1,41 @@
+#!/usr/bin/python
+
+import sys
+
+argvs=str(sys.argv[1:])
+
+#print('argvs=',argvs)
+argvs=argvs.split(' ')
+#print('argvs=',argvs)
+
+res=''
+data=''
+filename=''
+
+for i in range(len(argvs)):
+    filename=argvs[i]
+    # remove ['
+    if i==0:
+        filename=argvs[i][2:]
+    # remove ']
+    if i==len(argvs)-1:
+        filename=argvs[i][:-2]
+
+    print('filename='+filename)
+    try:
+        f=open(filename)
+        data=f.read()
+        d = 'FILE:'+filename+','+str(data)
+        #print(d)
+        res = res+d
+    except OSError as err:
+        sys.stderr.write('OSError')
+        pass
+    except ValueError:
+        sys.stderr.write('ValueError')
+        pass
+    except:
+        sys.stderr.write('Error filename='+filename+'\n')
+        pass
+
+print(res)

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes -->
+
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+</head>
+<body class="">
+<p>/home/coder/coder-dist/coder-base/config/queryTempController.txtにキー・ワードを書き込むと、<br>
+/home/coder/coder-dist/coder-base/config/statusTempController.txtに値が入ります。<br>
+queryTempController.txtをtouchで更新するとstatusTempController.txtも更新されます。</p>
+<p id='timedate'></p>
+<p id='warn'></p>
+<table border="1" >
+<tr><td>currentTemp</td><td>現在のBOX内の温度</td><td id='currentTemp'></td><td>℃</td></hr>
+<tr><td>hum</td><td>現在のBOX内の湿度</td><td id='hum'></td><td>%RH</td></hr>
+<tr><td>press</td><td>現在のBOX内の大気圧</td><td id='press'></td><td>hPa</td></hr>
+<tr><td>targetTemp</td><td>現在のBOX内の設定温度</td><td id='targetTemp'></td><td>℃</td></hr>
+<tr><td>currentLux</td><td>現在のBOX内の照度</td><td id='currentLux'></td><td>Lux</td></hr>
+<tr><td>pwm</td><td>現在のBOX内のペルチェの駆動力</td><td id='pwm'></td><td>%</td></hr>
+<tr><td>dir</td><td>現在のBOX内のペルチェの出力[０:冷却, 1:暖房]</td><td id='dir'></td><td>boolean</td></hr>
+<tr><td>AH</td><td>現在のBOX内の絶対湿度</td><td id='AH'></td><td>g/m^3</td></hr>
+<tr><td>Tpeltier</td><td>現在のBOX内のペルチェの温度</td><td id='Tpeltier'></td><td>℃</td></hr>
+<tr><td>Tcondensation</td><td>現在のBOX内の露点</td><td id='Tcondensation'></td><td>℃</td></hr>
+<tr><td>Pws</td><td>現在のBOX内の飽和水蒸気圧</td><td id='Pws'></td><td>hPa</td></hr>
+<tr><td>Pw</td><td>現在のBOX内の水蒸気圧</td><td id='Pw'></td><td>hPa</td></hr>
+<tr><td>Dair</td><td>現在のBOX内の乾燥空気の密度</td><td id='Dair'></td><td>kg/m^3</td></hr>
+<tr><td>Mratio</td><td>現在のBOX内の混合比</td><td id='Mratio'></td><td>g/kg</td></hr>
+<tr><td>CondensCondition</td><td>ペルチェが 結露しているかどうか(true/false)</td><td id='CondensCondition'></td><td>boolean</td></hr>
+<tr><td>FreezeCondition</td><td>ペルチェが凍結しているかどうか(true/false)</td><td id='FreezeCondition'></td><td>boolean</td></hr>
+<tr><td>correction</td><td>PIDの出力</td><td id='correction'></td><td></td></hr>
+<tr><td>dAH</td><td>dAH</td><td id='dAH'></td><td></td></hr>
+<tr><td>dTemp</td><td>dTemp</td><td id='dTemp'></td><td></td></hr>
+</table>
+<input type="button" value="更新" onclick="updateStatus()">
+<input type="button" value="読込" onclick="makeTable()"><br>
+ <p>何もしなくても、時々、自動更新されます。</p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+auto lo
+
+iface lo inet loopback
+
+###
+# Set up ethernet to use dhcp
+###
+iface eth0 inet dhcp
+
+###
+# Or comment the above and uncomment these
+# lines for a static IP address 
+###
+#auto eth0
+#iface eth0 inet static
+#	address 192.168.1.10
+#	netmask 255.255.255.0
+#	network 192.168.1.0
+#	broadcast 192.168.1.255
+#	gateway 192.168.1.1
+#
+
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+
+iface staticadhoc inet static
+	address 192.168.0.1
+	netmask 255.255.255.0
+	network 192.168.0.0
+	broadcast 192.168.0.255
+	post-up /etc/init.d/isc-dhcp-server start
+	pre-down /etc/init.d/isc-dhcp-server stop
+

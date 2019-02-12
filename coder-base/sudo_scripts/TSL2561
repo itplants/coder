@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/sudo /home/pi/src/ITBOX/TSL2561.py

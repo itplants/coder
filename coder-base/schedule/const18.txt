@@ -1,0 +1,2 @@
+targetTemp 18 start 00:00
+setPID Kp 450 Ki 0.0056 Kd 0.0014
